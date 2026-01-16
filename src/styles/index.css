@@ -1,4 +1,24 @@
 @import "tailwindcss";
 
+:root {
+    --background-primary: var(--color-neutral-950);
+    --background-secondary: var(--color-neutral-900);
+    --background-light: var(--color-neutral-800);
+    --primary-color: var(--color-neutral-50);
+    --font-primary: var(--color-neutral-50);
+    --font-muted: var(--color-neutral-500);
+}
 
-
+@theme {
+    --color-primary-bg: var(--background-primary);
+    --color-secondary-bg: var(--background-secondary);
+    --color-light-bg: var(--background-light);
+    --color-primary: var(--primary-color);
+    --color-primary-font: var(--font-primary);
+    --color-muted-font: var(--font-muted);
+    --font-inter: "Inter", sans-serif;
+    --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+}
+.dock-btn {
+    background-color: var(--color-bg-primary);
+}
