@@ -5,10 +5,11 @@ const DockBtn = (props) => {
 
     return (
         <button
-            className={`${baseDockBtnStyle} ${currentFocus === pageName ? "bg-light-bg" : ""}`}
-            onClick={() => onClick(pageName)}
+            className={`${baseDockBtnStyle}`}
+            onClick={onClick}
+            title={pageName}
         >
-            <Icon />
+            <Icon className="z-1" />
         </button>
     );
 };
