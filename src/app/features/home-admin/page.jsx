@@ -1,7 +1,7 @@
 import HomePageHeader from "./components/header";
 import QuestionSection from "./components/question_section";
 
-const HomePage = () => {
+const HomePageAdmin = () => {
     return (
         <div className="flex flex-row w-full h-full px-70 pt-10 bg-transparent">
             <div className="w-full">
@@ -12,4 +12,4 @@ const HomePage = () => {
         </div>
     );
 };
-export default HomePage;
+export default HomePageAdmin;
