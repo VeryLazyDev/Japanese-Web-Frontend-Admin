@@ -3,7 +3,7 @@ import { modules } from "@/constant/user_home_modules";
 const ModuleList = () => {
   return (
     <>
-      <h1 className="font-inter font-semibold w-full mt-10 mb-5">
+      <h1 className="font-semibold w-full mt-10 mb-5">
         Learning Modules
       </h1>
 
@@ -16,6 +16,7 @@ const ModuleList = () => {
             kanji={item.kanji}
             bgColor={item.bgColor}
             kanjiColor={item.kanjiColor}
+            path={item.path}
           />
         ))}
       </div>
