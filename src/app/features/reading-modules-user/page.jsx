@@ -1,23 +1,7 @@
 import Card from "./components/card";
 import BackHeader from "./components/back-header";
-import { Book, AlarmClockIcon } from "lucide-react";
+import { readingModules } from "@/constant/user_home_modules";
 
-const readingModules = [
-    {
-        id: 1,
-        title: "jlpt reading",
-        icon: Book,
-        desc: "Strategically selected exercises to equip you with essential skills for the tests.",
-        color: "text-white"
-    },
-    {
-        id: 2,
-        title: "speed run",
-        icon: AlarmClockIcon,
-        desc: "Accelerate and sharpen your reading speed & accuracy by doing custom drills.",
-        color: "text-rose-500"
-    }
-]
 
 const ReadingModulePage = () => {
     return (
