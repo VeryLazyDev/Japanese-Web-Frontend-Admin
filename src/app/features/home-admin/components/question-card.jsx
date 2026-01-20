@@ -2,14 +2,20 @@ import { PencilIcon } from "lucide-react";
 import { Edit2Icon } from "lucide-react";
 import { Edit } from "lucide-react";
 
+import { useEditQuestion } from "@/app/features/hooks/editContext";
+
 const QuestionCard = ({ id, title }) => {
+  const { openEdit } = useEditQuestion();
   return (
     <>
       <div className="w-auto h-auto p-4 bg-secondary-bg border border-neutral-700 rounded-md cursor-pointer hover:brightness-80 transition-all duration-200">
         <div className="flex justify-between">
           <h1 className="font-noto-sans-jp font-medium">問題 {id}</h1>
 
-          <div className="bg-primary w-9 h-9 rounded-full cursor-pointer flex items-center justify-center">
+          <div
+            onClick={() => openEdit({ id, title })}
+            className="bg-primary w-9 h-9 rounded-full cursor-pointer flex items-center justify-center"
+          >
             <PencilIcon className="text-white fill-black" />
           </div>
         </div>
