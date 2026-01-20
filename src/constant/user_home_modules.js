@@ -7,6 +7,7 @@ export const modules = [
     kanji: "読",
     bgColor: "bg-cyan-200",
     kanjiColor: "text-cyan-700",
+    path: "/reading-modules"
   },
   {
     id: 2,

@@ -1,11 +1,16 @@
 
 import { ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 
-const ModuleCard = ({title, description, kanji, bgColor, kanjiColor}) => {
+const ModuleCard = ({title, description, kanji, bgColor, kanjiColor, path}) => {
+
+    const navigate = useNavigate()
+
     return(
         <>
-            <div className="border-neutral-700 bg-secondary-bg w-full h-42 p-6 border-1 rounded-lg cursor-pointer
+            <div onClick={() => navigate(path)}
+            className="border-neutral-700 bg-secondary-bg w-full h-42 p-6 border-1 rounded-lg cursor-pointer
             hover:scale-102 hover:shadow-md transition-all duration-200">
                 <div className="flex w-full">
                     <div className="w-full h-auto">
