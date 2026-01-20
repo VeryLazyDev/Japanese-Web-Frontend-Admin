@@ -1,6 +1,6 @@
 import Card from "./components/card";
 import BackHeader from "./components/back-header";
-import { readingModules } from "@/constant/user_home_modules";
+import { readingModules } from "@/constant/user-home-modules";
 
 
 const ReadingModulePage = () => {
