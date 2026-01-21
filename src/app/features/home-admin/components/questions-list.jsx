@@ -1,6 +1,5 @@
-import { useEditQuestion } from "../../hooks/editContext";
+import { useEditQuestion } from "../hooks/useEditQuestions";
 import QuestionCard from "./question-card";
-import { readingQuestions } from "@/constant/readingQuestions";
 
 const QuestionList = () => {
   const { questionsData } = useEditQuestion();

@@ -1,6 +1,5 @@
 import { PencilIcon } from "lucide-react";
-
-import { useEditQuestion } from "@/app/features/hooks/editContext";
+import { useEditQuestion } from "../hooks/useEditQuestions";
 
 const QuestionCard = ({ id, paragraph }) => {
   const { openEdit } = useEditQuestion();
