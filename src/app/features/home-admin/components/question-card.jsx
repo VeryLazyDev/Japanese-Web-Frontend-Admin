@@ -1,14 +1,12 @@
 import { PencilIcon } from "lucide-react";
-import { Edit2Icon } from "lucide-react";
-import { Edit } from "lucide-react";
 
 import { useEditQuestion } from "@/app/features/hooks/editContext";
 
-const QuestionCard = ({ id, title }) => {
+const QuestionCard = ({ id, paragraph }) => {
   const { openEdit } = useEditQuestion();
-  const handleClick = () => {
-    console.log("Clicked", { id, title });
-    openEdit({ id, title });
+  const handleClick = (e) => {
+    e.stopPropagation();
+    openEdit(id);
   };
   return (
     <>
@@ -26,7 +24,7 @@ const QuestionCard = ({ id, title }) => {
 
         {/* Paragraph d mhr */}
         <div className="max-w-58 h-20 text-xs text-muted-font font-noto-sans-jp bg-transparent pt-3 overflow-hidden">
-          {title}.....
+          {paragraph}.....
         </div>
       </div>
     </>
