@@ -16,6 +16,18 @@
     --color-primary: var(--primary-color);
     --color-primary-font: var(--font-primary);
     --color-muted-font: var(--font-muted);
-    --font-inter: "Inter", sans-serif;
-    --font-noto-sans-jp: "Noto Sans JP", sans-serif;
+    --font-inter: "Inter";
+    --font-noto-sans-jp: "Noto Sans JP";
+    --font-aux-mono: "Aux Mono";
+}
+@font-face {
+    font-family: "Aux Mono";
+    src: url("/fonts/AuxMono-Regular.eot");
+    src:
+        local("Aux Mono"),
+        local("AuxMono-Regular"),
+        url("/fonts/AuxMono-Regular.eot?#iefix") format("embedded-opentype"),
+        url("/fonts/AuxMono-Regular.woff2") format("woff2"),
+        url("/fonts/AuxMono-Regular.woff") format("woff"),
+        url("/fonts/AuxMono-Regular.ttf") format("truetype");
 }
