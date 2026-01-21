@@ -1,5 +1,5 @@
 import HomePageUser from "../features/home-user/page";
-import NewExercisePage from "../features/new_excercise/page";
+import NewExercisePage from "../features/new-excercise/page";
 import ReadingModulePage from "../features/reading-modules-user/page";
 
 /** @type {import('react-router-dom').RouteObject[]} */
