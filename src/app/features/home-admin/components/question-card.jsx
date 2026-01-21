@@ -1,22 +1,30 @@
 import { PencilIcon } from "lucide-react";
-import { Edit2Icon } from "lucide-react";
-import { Edit } from "lucide-react";
 
-const QuestionCard = ({ id, title }) => {
+import { useEditQuestion } from "@/app/features/hooks/editContext";
+
+const QuestionCard = ({ id, paragraph }) => {
+  const { openEdit } = useEditQuestion();
+  const handleClick = (e) => {
+    e.stopPropagation();
+    openEdit(id);
+  };
   return (
     <>
       <div className="w-auto h-auto p-4 bg-secondary-bg border border-neutral-700 rounded-md cursor-pointer hover:brightness-80 transition-all duration-200">
         <div className="flex justify-between">
           <h1 className="font-noto-sans-jp font-medium">問題 {id}</h1>
 
-          <div className="bg-primary w-9 h-9 rounded-full cursor-pointer flex items-center justify-center">
+          <div
+            onClick={handleClick}
+            className="bg-primary w-9 h-9 rounded-full cursor-pointer flex items-center justify-center"
+          >
             <PencilIcon className="text-white fill-black" />
           </div>
         </div>
 
         {/* Paragraph d mhr */}
         <div className="max-w-58 h-20 text-xs text-muted-font font-noto-sans-jp bg-transparent pt-3 overflow-hidden">
-          {title}.....
+          {paragraph}.....
         </div>
       </div>
     </>
