@@ -1,12 +1,9 @@
 import HomePageHeader from "./components/header";
-import QuestionSection from "./components/question_section";
-import EditQuestionSection from "./components/editQuestion_section";
-import {
-  EditQuestionProvider,
-  useEditQuestion,
-} from "@/app/features/hooks/editContext";
+import QuestionSection from "./components/questions-section";
+import EditQuestionSection from "./components/edit-questions-section";
+import { useEditQuestion } from "./hooks/useEditQuestions";
 
-const HomePageContent = () => {
+const HomePageAdmin = () => {
   const { editQuestionSidebar, closeEdit } = useEditQuestion();
   return (
     <div className="flex flex-row w-full h-full px-70 pt-10 bg-transparent">
@@ -28,14 +25,6 @@ const HomePageContent = () => {
         <EditQuestionSection />
       </div>
     </div>
-  );
-};
-
-const HomePageAdmin = () => {
-  return (
-    <EditQuestionProvider>
-      <HomePageContent />
-    </EditQuestionProvider>
   );
 };
 export default HomePageAdmin;

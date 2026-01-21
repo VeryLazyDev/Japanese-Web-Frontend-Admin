@@ -1,8 +1,6 @@
-import { createContext, useState, useContext } from "react";
-
 import { readingQuestions } from "@/constant/readingQuestions";
-
-const EditQuestionContext = createContext();
+import { useState } from "react";
+import EditQuestionContext from "./edit-context";
 
 export const EditQuestionProvider = ({ children }) => {
   const [questionsData, setQuestionsData] = useState(readingQuestions);
@@ -127,15 +125,4 @@ export const EditQuestionProvider = ({ children }) => {
       {children}
     </EditQuestionContext.Provider>
   );
-};
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const useEditQuestion = () => {
-  const context = useContext(EditQuestionContext);
-  if (!context) {
-    throw new Error(
-      "useEditQuestion must be used within an EditQuestionProvider.",
-    );
-  }
-  return context;
 };

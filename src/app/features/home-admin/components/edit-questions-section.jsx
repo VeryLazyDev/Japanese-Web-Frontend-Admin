@@ -1,6 +1,5 @@
 import { X, Trash } from "lucide-react";
-
-import { useEditQuestion } from "../../hooks/editContext";
+import { useEditQuestion } from "../hooks/useEditQuestions";
 
 const EditQuestionSection = () => {
   const {
