@@ -1,10 +1,11 @@
+import { useTheme } from "@/hooks/useTheme";
 import { getUserNavs } from "@/lib/get-user-nav";
-import { SunIcon } from "lucide-react";
+import { MoonIcon, SunIcon } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const navs = getUserNavs();
-
+  const { theme, SwitchTheme } = useTheme();
   return (
     <div className="w-full p-1.5 flex justify-center h-10 rounded bg-secondary-bg">
       <nav className="flex justify-around items-center w-full py-2">
@@ -16,8 +17,12 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="bg-white rounded-full p-2">
-          <SunIcon color="black" />
+        <div className="bg-white rounded-full p-2" onClick={SwitchTheme}>
+          {theme === "light" ? (
+            <MoonIcon color="black" />
+          ) : (
+            <SunIcon color="black" />
+          )}
         </div>
       </nav>
     </div>

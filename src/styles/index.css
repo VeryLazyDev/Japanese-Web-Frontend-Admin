@@ -7,6 +7,17 @@
     --primary-color: var(--color-neutral-50);
     --font-primary: var(--color-neutral-50);
     --font-muted: var(--color-neutral-500);
+    --border-primary: var(--color-neutral-300);
+}
+
+.light {
+    --background-primary: var(--color-neutral-50);
+    --background-secondary: var(--color-white);
+    --background-light: var(--color-neutral-300);
+    --border-primary: var(--color-neutral-300);
+    --primary-color: var(--color-neutral-950);
+    --font-primary: var(--color-netral-950);
+    --font-muted: var(--color-neutral-500);
 }
 
 @theme {
@@ -16,6 +27,7 @@
     --color-primary: var(--primary-color);
     --color-primary-font: var(--font-primary);
     --color-muted-font: var(--font-muted);
+    --primary-bd: var(--border-primary);
     --font-inter: "Inter";
     --font-noto-sans-jp: "Noto Sans JP";
     --font-aux-mono: "Aux Mono";
