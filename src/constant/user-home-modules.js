@@ -1,4 +1,23 @@
 import { Book, AlarmClockIcon } from "lucide-react";
+import { MdBolt } from "react-icons/md";
+
+export const readingModules = [
+    {
+        id: 1,
+        title: "jlpt reading",
+        icon: Book,
+        desc: "Strategically selected exercises to equip you with essential skills for the tests.",
+        color: "white text-3xl"
+    },
+    {
+        id: 2,
+        title: "speed run",
+        icon: MdBolt,
+        desc: "Accelerate and sharpen your reading speed & accuracy by doing quick drills.",
+        style: "text-amber-400 text-3xl",
+        
+    }
+]
 
 export const modules = [
   {
@@ -45,19 +64,4 @@ export const modules = [
   },
 ];
 
-export const readingModules = [
-    {
-        id: 1,
-        title: "jlpt reading",
-        icon: Book,
-        desc: "Strategically selected exercises to equip you with essential skills for the tests.",
-        color: "text-white"
-    },
-    {
-        id: 2,
-        title: "speed run",
-        icon: AlarmClockIcon,
-        desc: "Accelerate and sharpen your reading speed & accuracy by doing custom drills.",
-        color: "text-rose-500"
-    }
-]
+
