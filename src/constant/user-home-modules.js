@@ -1,3 +1,5 @@
+import { Book, AlarmClockIcon } from "lucide-react";
+
 export const modules = [
   {
     id: 1,
@@ -7,6 +9,7 @@ export const modules = [
     kanji: "読",
     bgColor: "bg-cyan-200",
     kanjiColor: "text-cyan-700",
+    path: "/reading-modules"
   },
   {
     id: 2,
@@ -41,3 +44,20 @@ export const modules = [
     kanjiColor: "text-yellow-700",
   },
 ];
+
+export const readingModules = [
+    {
+        id: 1,
+        title: "jlpt reading",
+        icon: Book,
+        desc: "Strategically selected exercises to equip you with essential skills for the tests.",
+        color: "text-white"
+    },
+    {
+        id: 2,
+        title: "speed run",
+        icon: AlarmClockIcon,
+        desc: "Accelerate and sharpen your reading speed & accuracy by doing custom drills.",
+        color: "text-rose-500"
+    }
+]
