@@ -20,7 +20,7 @@ const ModuleCard = ({
       >
         <div className="flex w-full">
           <div className="w-full h-auto">
-            <h1 className="font-semibold mb-3 uppercase">{title} </h1>
+            <h1 className="font-aux-mono mb-3 uppercase">{title} </h1>
             <p className="min-w-45 text-xs text-neutral-500">{description}</p>
           </div>
 
