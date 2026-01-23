@@ -5,7 +5,7 @@ const Card = ({title, Icon, desc, style, onClick}) => {
     return(
         <>
         <div onClick={onClick}
-         className="border-neutral-700 bg-secondary-bg w-full h-auto p-6 border rounded-lg cursor-pointer
+         className="border border-primary-bd  bg-secondary-bg w-full h-auto p-6 rounded-lg cursor-pointer
             hover:scale-102 hover:shadow-md transition-all duration-200 select-none">
                 <div className="flex justify-between">
                     {Icon && <Icon className={style}/>}

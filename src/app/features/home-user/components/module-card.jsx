@@ -15,7 +15,7 @@ const ModuleCard = ({
     <>
       <div
         onClick={() => navigate(path)}
-        className="border-neutral-700 bg-secondary-bg w-full h-42 p-6 border rounded-lg cursor-pointer
+        className="border-primary-bd bg-secondary-bg w-full h-42 p-6 border rounded-lg cursor-pointer
             hover:scale-102 hover:shadow-md transition-all duration-200"
       >
         <div className="flex w-full">

@@ -13,7 +13,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-6">
           {navs.map((item) => (
-            <NavLink key={item.id}>{item.name}</NavLink>
+            <NavLink to={item.route} key={item.id}>{item.name}</NavLink>
           ))}
         </div>
 
