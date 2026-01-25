@@ -7,11 +7,11 @@ const AnimationProvider = ({ children }) => {
     const hoverModuleCardAnimation = {
         onMouseEnter: (e) => {
             animate(e.currentTarget, {
-                scale: 1.06,
+                scale: 1.01,
                 y: [0, 20, -5],
                 duration: 100,
                 delay: 0,
-                zIndex: 1000,
+                zIndex: 20,
                 ease: "inBounce",
             });
         },
