@@ -17,7 +17,7 @@ const ReadingModulePage = () => {
             <div className="bg-transparent w-90 sm:w-150 lg:w-250 h-auto flex justify-center pt-3 pb-10">
 
                 {isOpen && (
-                    <div className='bg-black/80 fixed inset-0 z-10 flex items-center justify-center'>
+                    <div className='bg-black/80 fixed inset-0 z-50 flex items-center justify-center'>
                         <SpeedrunPopup close={() => setIsOpen(false)}/>
                     </div>
                 )}
