@@ -1,5 +1,10 @@
 import { Book, AlarmClockIcon } from "lucide-react";
 import { MdBolt } from "react-icons/md";
+import startSfx from "../assets/sfx/startSfx.mp3"
+
+export const soundEffects = {startSfx}
+  
+
 
 export const readingModules = [
     {
