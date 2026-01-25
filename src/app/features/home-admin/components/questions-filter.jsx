@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FilterBtn from "./filter-btn";
 import { Pencil } from "lucide-react";
+import { MdEdit } from "react-icons/md";
 
 const QuestionFilter = () => {
     const [currentFocus, setCurrentFocus] = useState(0);
@@ -27,7 +28,7 @@ const QuestionFilter = () => {
             {/* Right */}
             <div className="bg-transparent w-32 h-full flex justify-between">
                 <button className="w-7 h-7 bg-light-bg text-muted-font flex items-center justify-center rounded-full cursor-pointer">
-                    <Pencil className="text-white fill-black" />
+                    <MdEdit className="text-primary " />
                 </button>
                 <button className="bg-teal-200 px-5 h-7 text-xs font-medium text-teal-700 rounded-sm cursor-pointer hover:brightness-80 transition-all duration-100">
                     Create +
