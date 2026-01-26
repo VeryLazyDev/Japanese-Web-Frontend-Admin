@@ -1,27 +1,27 @@
-import { useState } from "react";
-import ThemeContext from "./theme-context";
+import { createContext, useState } from "react";
 import { useCallback } from "react";
 import { GetLocalTheme } from "@/lib/get-local-theme";
 import { useEffect } from "react";
 
+const ThemeContext = createContext();
 const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(GetLocalTheme);
+    const [theme, setTheme] = useState(GetLocalTheme);
 
-  const SwitchTheme = useCallback(() => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-  }, []);
+    const SwitchTheme = useCallback(() => {
+        setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    }, []);
 
-  useEffect(() => {
-    localStorage.setItem("theme", theme);
+    useEffect(() => {
+        localStorage.setItem("theme", theme);
 
-    document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add(theme);
-  }, [theme]);
+        document.documentElement.classList.remove("light", "dark");
+        document.documentElement.classList.add(theme);
+    }, [theme]);
 
-  return (
-    <ThemeContext.Provider value={{ theme, SwitchTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+    return (
+        <ThemeContext.Provider value={{ theme, SwitchTheme }}>
+            {children}
+        </ThemeContext.Provider>
+    );
 };
-export default ThemeProvider;
+export { ThemeContext, ThemeProvider };

@@ -1,7 +1,6 @@
 const DockBtn = (props) => {
-    const { currentFocus, pageName, route, onClick, icon: Icon } = props;
-    const baseDockBtnStyle =
-        "w-11 h-11 items-center justify-center flex rounded";
+    const { currentFocus, pageName, route, onClick, icon: Icon, id } = props;
+    const baseDockBtnStyle = `w-11 h-11 items-center justify-center flex rounded transition-all  ${currentFocus === id ? "text-primary-bg" : ""}`;
 
     return (
         <button

@@ -9,7 +9,7 @@ const AnimationProvider = ({ children }) => {
             animate(e.currentTarget, {
                 scale: 1.01,
                 y: [0, 20, -5],
-                duration: 100,
+                duration: 10,
                 delay: 0,
                 zIndex: 20,
                 ease: "inBounce",
@@ -28,10 +28,22 @@ const AnimationProvider = ({ children }) => {
         },
     };
 
+    const switchThemeAnimation = (theme) => {
+        animate("#" + theme, {
+            rotate: 90,
+            duration: 100,
+            opacity: [0, 100],
+        });
+        animate("#" + theme, {
+            rotate: 90,
+        });
+    };
+
     return (
         <AnimationContext.Provider
             value={{
                 hoverModuleCardAnimation,
+                switchThemeAnimation,
             }}
         >
             {children}
