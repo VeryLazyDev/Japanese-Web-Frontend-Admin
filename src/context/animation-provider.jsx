@@ -1,4 +1,4 @@
-import { animate } from "animejs";
+import { animate, utils } from "animejs";
 import { createContext } from "react";
 
 const AnimationContext = createContext({});
@@ -29,13 +29,27 @@ const AnimationProvider = ({ children }) => {
     };
 
     const switchThemeAnimation = (theme) => {
-        animate("#" + theme, {
-            rotate: 90,
+        utils.remove("#dark");
+        utils.remove("#light");
+        const dark = theme === "dark";
+        animate("#dark", {
+            rotate: dark ? [-0, -90] : [90, 0],
             duration: 100,
-            opacity: [0, 100],
+            delay: dark ? 0 : 100,
+            opacity: dark ? 0 : 100,
+            // class: "absolute",
+            x: 0,
+            y: 0,
         });
-        animate("#" + theme, {
-            rotate: 90,
+        const light = theme === "light";
+        animate("#light", {
+            rotate: light ? [-0, -90] : [90, 0],
+            duration: 100,
+            delay: light ? 0 : 100,
+            opacity: light ? 0 : 100,
+            // class: "absolute",
+            x: 0,
+            y: 0,
         });
     };
 

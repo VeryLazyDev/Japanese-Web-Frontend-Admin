@@ -8,10 +8,10 @@ import { ThemeProvider } from "./context/theme-provider";
 
 createRoot(document.getElementById("root")).render(
     <Providers>
-        <ThemeProvider>
-            <AnimationProvider>
+        <AnimationProvider>
+            <ThemeProvider>
                 <RouterProvider router={router} />
-            </AnimationProvider>
-        </ThemeProvider>
+            </ThemeProvider>
+        </AnimationProvider>
     </Providers>,
 );
