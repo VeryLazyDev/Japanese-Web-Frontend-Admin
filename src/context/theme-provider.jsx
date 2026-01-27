@@ -6,24 +6,24 @@ import useAnimation from "@/hooks/useAnimation";
 
 const ThemeContext = createContext();
 const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState(GetLocalTheme);
-    const { switchThemeAnimation } = useAnimation();
+  const [theme, setTheme] = useState(GetLocalTheme);
+  const { switchThemeAnimation } = useAnimation();
 
-    const SwitchTheme = useCallback(() => {
-        setTheme((prev) => (prev === "light" ? "dark" : "light"));
-    }, []);
+  const SwitchTheme = useCallback(() => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  }, []);
 
-    useEffect(() => {
-        localStorage.setItem("theme", theme);
-        // switchThemeAnimation(theme);
-        document.documentElement.classList.remove("light", "dark");
-        document.documentElement.classList.add(theme);
-    }, [theme, switchThemeAnimation]);
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    switchThemeAnimation(theme);
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
+  }, [theme, switchThemeAnimation]);
 
-    return (
-        <ThemeContext.Provider value={{ theme, SwitchTheme }}>
-            {children}
-        </ThemeContext.Provider>
-    );
+  return (
+    <ThemeContext.Provider value={{ theme, SwitchTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };
 export { ThemeContext, ThemeProvider };
