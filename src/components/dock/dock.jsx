@@ -6,6 +6,8 @@ import { useTheme } from "@/hooks/useTheme";
 import { Sun } from "lucide-react";
 import { Moon } from "lucide-react";
 import useAnimation from "@/hooks/useAnimation";
+// import { Lightbulb } from "lucide-react";
+// import { MdLightbulb, MdOutlineLightbulb } from "react-icons/md";
 
 const Dock = () => {
   const [currentFocus, setCurrentFocus] = useState(1);
@@ -41,13 +43,14 @@ const Dock = () => {
           id={item.id}
         />
       ))}
-      <div
+      {/* <MdOutlineLightbulb />*/}
+      <button
         onClick={SwitchTheme}
-        className="w-11 h-11 flex items-center justify-center"
+        className={`w-11 h-11 flex items-center justify-center bg-neutral-800 rounded`}
       >
-        <Sun className={`absolute light-switch`} />
-        <Moon className={`absolute dark-switch`} />
-      </div>
+        <Sun className={`absolute light-switch text-neutral-200`} />
+        <Moon className={`absolute dark-switch text-neutral-200`} />
+      </button>
     </div>
   );
 };
