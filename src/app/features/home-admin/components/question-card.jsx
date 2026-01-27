@@ -18,7 +18,7 @@ const QuestionCard = ({ id, paragraph }) => {
                         onClick={handleClick}
                         className="bg-primary w-9 h-9 rounded-full cursor-pointer flex items-center justify-center"
                     >
-                        <MdEdit className="text-xl text-white" />
+                        <MdEdit className="text-xl text-primary-bg" />
                     </div>
                 </div>
 

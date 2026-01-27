@@ -1,4 +1,4 @@
-import { animate } from "animejs";
+import { animate, utils } from "animejs";
 import { createContext } from "react";
 
 const AnimationContext = createContext({});
@@ -9,7 +9,7 @@ const AnimationProvider = ({ children }) => {
             animate(e.currentTarget, {
                 scale: 1.01,
                 y: [0, 20, -5],
-                duration: 100,
+                duration: 10,
                 delay: 0,
                 zIndex: 20,
                 ease: "inBounce",
@@ -28,10 +28,36 @@ const AnimationProvider = ({ children }) => {
         },
     };
 
+    const switchThemeAnimation = (theme) => {
+        utils.remove("#dark");
+        utils.remove("#light");
+        const dark = theme === "dark";
+        animate("#dark", {
+            rotate: dark ? [-0, -90] : [90, 0],
+            duration: 100,
+            delay: dark ? 0 : 100,
+            opacity: dark ? 0 : 100,
+            // class: "absolute",
+            x: 0,
+            y: 0,
+        });
+        const light = theme === "light";
+        animate("#light", {
+            rotate: light ? [-0, -90] : [90, 0],
+            duration: 100,
+            delay: light ? 0 : 100,
+            opacity: light ? 0 : 100,
+            // class: "absolute",
+            x: 0,
+            y: 0,
+        });
+    };
+
     return (
         <AnimationContext.Provider
             value={{
                 hoverModuleCardAnimation,
+                switchThemeAnimation,
             }}
         >
             {children}
