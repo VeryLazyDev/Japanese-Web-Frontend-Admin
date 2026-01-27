@@ -54,7 +54,7 @@ export const team = [
         img: "https://github.com/marcusnoir1011.png",
         link: "https://github.com/marcusnoir1011",
         username: "marcusnoir1011",
-        desc: "frontend development"
+        desc: "frontend development & localization"
     },
     {
         id: 8,

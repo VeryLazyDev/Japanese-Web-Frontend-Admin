@@ -1,31 +1,55 @@
 import { useTheme } from "@/hooks/useTheme";
 import { getUserNavs } from "@/lib/get-user-nav";
-import { MoonIcon, SunIcon } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { logos } from "@/constant/user-home-modules";
+import { useState } from "react";
+import HamburgerMenu from "./hamburger-menu";
+import LanguageToggle from "./launguage-toggle";
+import ThemeToggle from "./theme-toggle";
+
 
 const Navbar = () => {
+
   const navs = getUserNavs();
-  const { theme, SwitchTheme } = useTheme();
+  const navigate = useNavigate();
+  const [toggleMenu, setToggleMenu] = useState(false)
+
+  const handleToggle = () => {
+    setToggleMenu(!toggleMenu)
+  }
+
   return (
-    <div className="w-full p-1.5 flex justify-center h-10 rounded bg-secondary-bg">
-      <nav className="flex justify-around items-center w-full py-2">
-        <h3 className="text-xl font-mono">MUDA-ZER0</h3>
+    <>
+      <div className="fixed w-full p-1.5 flex justify-center h-14  bg-neutral-900 select-none z-100 ">
+        <nav className="flex justify-between items-center w-90 sm:w-150 lg:w-250 py-2 ">
+          {/* logo */}
+          <img onClick={() => navigate("/")} src={logos.logoText} alt="" className="w-24 cursor-pointer" />
 
-        <div className="flex items-center gap-6">
-          {navs.map((item) => (
-            <NavLink to={item.route} key={item.id}>{item.name}</NavLink>
-          ))}
-        </div>
+          {/* links */}
+          <div className="max-lg:hidden flex items-center gap-12 text-muted-font">
+            {navs.map((item) => (
+              <NavLink className={({ isActive }) => `text-sm transition-colors duration-200 ${isActive ? "text-white" : "hover:text-white"}`}
+                to={item.route} key={item.id}>{item.name}</NavLink>))}
+          </div>
 
-        <div className="bg-white rounded-full p-2" onClick={SwitchTheme}>
-          {theme === "light" ? (
-            <MoonIcon color="black" />
-          ) : (
-            <SunIcon color="black" />
-          )}
-        </div>
-      </nav>
-    </div>
+          {/* language & theme */}
+          <div className="max-lg:hidden flex justify-between items-center gap-3">
+            <LanguageToggle size={20}></LanguageToggle>
+            <ThemeToggle size={20}></ThemeToggle>
+          </div>
+
+          {/* menu-toggle */}
+          {toggleMenu ? (<X onClick={() => handleToggle()} size={20} className="lg:hidden text-white cursor-pointer" />)
+            : (<Menu onClick={() => handleToggle()} size={20} className="lg:hidden text-white cursor-pointer" />)}
+
+
+
+        </nav>
+
+      </div>
+      <HamburgerMenu toggle={toggleMenu} setToggle={setToggleMenu}/>
+    </>
   );
 };
 export default Navbar;

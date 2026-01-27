@@ -4,7 +4,7 @@ import ModuleList from "./components/module-list";
 const HomePageUser = () => {
     return (
         <>
-            <div className="bg-transparent w-full h-auto flex justify-center pt-3 pb-10">
+            <div className="bg-transparent w-full h-auto mt-15 flex justify-center pt-3 pb-10">
                 <div className="bg-transparent w-auto">
                     <div className="bg-transparent w-full h-auto py-5">
                         <h1 className="font-inter font-semibold w-auto">

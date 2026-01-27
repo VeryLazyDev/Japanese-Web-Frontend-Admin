@@ -1,8 +1,12 @@
 import { Book, AlarmClockIcon } from "lucide-react";
 import { MdBolt } from "react-icons/md";
 import startSfx from "../assets/sfx/startSfx.mp3";
+import logo from "../assets/icons/logo.png"
+import logoText from "../assets/icons/logo-text.png"
 
 export const soundEffects = { startSfx };
+
+export const logos ={ logo, logoText}
 
 export const readingModules = [
     {
