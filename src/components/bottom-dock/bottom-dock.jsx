@@ -10,7 +10,7 @@ const BottomDock = () => {
     };
 
     return (
-        <div className="md:hidden w-full h-15 fixed bottom-0 left-0 bg-primary-bg border border-t border-primary-bd rounded-t-lg flex px-2 py-1 items-center justify-center">
+        <div className="md:hidden w-full h-15 fixed bottom-0 left-0 bg-primary-bg  border-t border-primary-bd rounded-t-lg flex px-2 py-1 items-center justify-center">
             <div className="w-full  flex flex-row">
                 {DockPages.map((item) => (
                     <BottomDockBtn
