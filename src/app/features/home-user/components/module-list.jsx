@@ -3,8 +3,8 @@ import { modules } from "@/constant/user-home-modules";
 const ModuleList = () => {
     return (
         <>
-            <section className="flex flex-col items-center w-full">
-                <h1 className="font-semibold text-xl w-full mt-5 mb-5">
+            <section className="flex flex-col items-center mt-10 w-full">
+                <h1 className="font-semibold text-xl w-full mb-5">
                     Learning Modules
                 </h1>
 
