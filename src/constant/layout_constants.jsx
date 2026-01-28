@@ -5,7 +5,7 @@ import { Book } from "lucide-react";
 import { Home } from "lucide-react";
 
 export const DockPages = [
-    { id: 1, pageName: "HOME", route: "/", icon: BookOpen },
-    { id: 2, pageName: "ACCOUNT", route: "/account", icon: UserCircle },
-    { id: 3, pageName: "SETTINGS", route: "/settings", icon: Settings },
+    { id: 1, pageName: "Home", route: "/", icon: BookOpen },
+    { id: 2, pageName: "Account", route: "/account", icon: UserCircle },
+    { id: 3, pageName: "Settings", route: "/settings", icon: Settings },
 ];

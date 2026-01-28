@@ -23,7 +23,7 @@ const Dock = () => {
     }, [location, switchThemeAnimation, theme]);
 
     return (
-        <div className="p-1 w-fit h-fit border-light-bg border rounded-md gap-1 absolute bottom-3/6 left-5 max-sm:hidden">
+        <div className="p-1 w-fit h-fit border-light-bg border rounded-md gap-1 absolute bottom-3/6 left-5 max-md:hidden z-100 bg-primary-bg">
             <div
                 className={`bg-primary/80 calc() w-11 h-11 absolute rounded z-0 transition-all`}
                 style={{
