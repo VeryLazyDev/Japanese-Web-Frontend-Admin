@@ -1,10 +1,9 @@
-import { useActionState } from "react";
-import LoginContext from "./login-context";
+import { createContext, useActionState } from "react";
 
-export async function LoginHandler(prevState, formData) {
+const LoginContext = createContext();
+async function LoginHandler(prevState, formData) {
     const username = formData.get("username");
     const password = formData.get("password");
-
     if (!username || !password) {
         return {
             error: "Missing credentials",
@@ -12,8 +11,8 @@ export async function LoginHandler(prevState, formData) {
             password,
         };
     }
-    // implement login logic here
-    console.log(username, password);
+
+    // fake login
     await new Promise((r) => setTimeout(r, 500));
 
     return {
@@ -22,7 +21,7 @@ export async function LoginHandler(prevState, formData) {
         password,
     };
 }
-export const LoginProvider = ({ children }) => {
+const LoginProvider = ({ children }) => {
     const [loginFormState, formAction] = useActionState(LoginHandler, {
         username: "",
         password: "",
@@ -35,3 +34,5 @@ export const LoginProvider = ({ children }) => {
         </LoginContext.Provider>
     );
 };
+
+export { LoginContext, LoginProvider, LoginHandler };

@@ -1,11 +1,20 @@
-import HomePageAdmin from "../features/home-admin/page";
-import LoginAdminPage from "../features/login-admin/page";
+import HomePageAdminWrapper from "../features/home-admin/wrapper";
+import NewExercisePage from "../features/new-excercise/page";
+import LoginAdminWrapper from "../features/login-admin/wrapper";
 
 /** @type {import('react-router-dom').RouteObject[]} */
 const AdminRoutes = [
   {
     index: true,
-    element: <HomePageAdmin />,
+    element: <HomePageAdminWrapper />,
+  },
+  {
+    path: "login",
+    element: <LoginAdminWrapper />,
+  },
+  {
+    path: "new-exercise",
+    element: <NewExercisePage />,
   },
 ];
 

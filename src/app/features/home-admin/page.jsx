@@ -1,5 +1,6 @@
+import EditQuestions from "./components/edit-questions";
 import HomePageHeader from "./components/header";
-import QuestionSection from "./components/question_section";
+import QuestionSection from "./components/questions-section";
 
 const HomePageAdmin = () => {
     return (
@@ -8,7 +9,9 @@ const HomePageAdmin = () => {
                 <HomePageHeader />
                 <QuestionSection />
             </div>
-            {/* <div>Here Will be the edit </div>*/}
+
+            {/* This is the edit question section */}
+            <EditQuestions />
         </div>
     );
 };
