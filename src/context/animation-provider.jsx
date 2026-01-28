@@ -37,7 +37,7 @@ const AnimationProvider = ({ children }) => {
       duration: 100,
       delay: dark ? 0 : 100,
       opacity: dark ? 0 : 100,
-      // class: "absolute",
+      // class: "text-primary absolute dark-switch",
       x: 0,
       y: 0,
     });
@@ -47,7 +47,7 @@ const AnimationProvider = ({ children }) => {
       duration: 100,
       delay: light ? 0 : 100,
       opacity: light ? 0 : 100,
-      // class: "absolute",
+      // class: "text-primary absolute light-switch",
       x: 0,
       y: 0,
     });
