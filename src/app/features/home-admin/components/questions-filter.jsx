@@ -6,9 +6,9 @@ import { MdEdit } from "react-icons/md";
 const QuestionFilter = () => {
     const [currentFocus, setCurrentFocus] = useState(0);
     return (
-        <div className="flex justify-between mt-10 h-7 bg-transparent">
+        <div className="flex justify-between mt-10 h-fit bg-transparent">
             {/* Left */}
-            <div>
+            <div className="flex gap-1 flex-wrap">
                 <FilterBtn
                     text={"Short"}
                     onClick={() => setCurrentFocus(0)}
