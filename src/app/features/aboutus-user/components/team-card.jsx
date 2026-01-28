@@ -13,7 +13,7 @@ const TeamCard = ({ name, desc, link, img, username }) => {
                     </div>
 
                 </div>
-                <p className="text-xs text-muted-font capitalize mt-3">{desc}</p>
+                <p className="text-xs text-muted-font capitalize mt-4">{desc}</p>
             </section>
             </a>
         </>

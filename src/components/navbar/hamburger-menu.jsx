@@ -48,7 +48,7 @@ const HamburgerMenu = ({ toggle, setToggle }) => {
                             </button>
                         ))}
                     </div>
-                    <div className="bg-transparent flex justify-end items-center gap-3 w-90 sm:w-150 px-1">
+                    <div className="bg-transparent flex justify-end items-center gap-3 w-90 sm:w-150 px-8">
                         <LanguageToggle></LanguageToggle>
                         <ThemeToggle></ThemeToggle>
                     </div>

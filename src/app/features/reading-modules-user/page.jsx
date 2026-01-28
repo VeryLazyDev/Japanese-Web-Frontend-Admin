@@ -14,7 +14,7 @@ const ReadingModulePage = () => {
 
     return (
         <>
-            <div className="bg-transparent mt-15 w-90 sm:w-150 lg:w-250 h-auto flex justify-center pt-3 pb-10">
+            <div className="bg-transparent w-90 sm:w-150 lg:w-250 mt-15 h-auto flex flex-col justify-center pt-3 pb-10 px-5">
 
                 {isOpen && (
                     <div className='bg-black/80 fixed inset-0 z-50 flex items-center justify-center'>
