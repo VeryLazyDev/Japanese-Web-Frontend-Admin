@@ -4,8 +4,7 @@ import { getUserNavs } from "@/lib/get-user-nav";
 import LanguageToggle from "./launguage-toggle";
 import ThemeToggle from "./theme-toggle";
 
-const hamburgerMenu = ({ toggle, setToggle }) => {
-
+const HamburgerMenu = ({ toggle, setToggle }) => {
     const navs = getUserNavs();
     const navigate = useNavigate();
 
@@ -14,7 +13,7 @@ const hamburgerMenu = ({ toggle, setToggle }) => {
         setTimeout(() => {
             navigate(route);
         }, 500);
-    }
+    };
 
     useEffect(() => {
         if (toggle) {
@@ -30,10 +29,14 @@ const hamburgerMenu = ({ toggle, setToggle }) => {
 
     return (
         <>
-            <div className={`lg:hidden fixed inset-0 z-20 transition-colors duration-400 
-                ${toggle ? "bg-black/80 pointer-events-auto" : "bg-black/0 pointer-events-none"}`}>
-                <div className={`bg-neutral-900 w-full h-120 top-14 absolute rounded-b-xl flex flex-col items-center 
-                    transform transition-transform duration-400 ease-in-out ${toggle ? "translate-y-0" : "-translate-y-full"}`}>
+            <div
+                className={`lg:hidden fixed inset-0 z-20 transition-colors duration-400
+                ${toggle ? "bg-black/80 pointer-events-auto" : "bg-black/0 pointer-events-none"}`}
+            >
+                <div
+                    className={`bg-neutral-900 w-full h-120 top-14 absolute rounded-b-xl flex flex-col items-center
+                    transform transition-transform duration-400 ease-in-out ${toggle ? "translate-y-0" : "-translate-y-full"}`}
+                >
                     <div className="text-muted-font h-100 flex flex-col gap-12 items-center justify-center">
                         {navs.map((item) => (
                             <button
@@ -49,11 +52,10 @@ const hamburgerMenu = ({ toggle, setToggle }) => {
                         <LanguageToggle></LanguageToggle>
                         <ThemeToggle></ThemeToggle>
                     </div>
-
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default hamburgerMenu;
+export default HamburgerMenu;
