@@ -8,17 +8,26 @@
     --font-primary: var(--color-neutral-50);
     --font-muted: var(--color-neutral-500);
     --border-primary: var(--color-neutral-700);
+
+    --pink-bg: var(--color-neutral-800);
+    --amber-bg: var(--color-neutral-800);
+    --cyan-bg: var(--color-neutral-800);
 }
 
 .light {
     --background-primary: var(--color-neutral-50);
     --background-secondary: var(--color-white);
-    --background-light: var(--color-neutral-300);
+    --background-light: var(--color-neutral-100);
     --border-primary: var(--color-neutral-300);
     --primary-color: var(--color-neutral-950);
-    --font-primary: var(--color-netral-950);
+    --font-primary: var(--color-neutral-950);
     --font-muted: var(--color-neutral-500);
+
+    --pink-bg: var(--color-pink-100);
+    --amber-bg: var(--color-amber-100);
+    --cyan-bg: var(--color-cyan-100);
 }
+
 
 @theme {
     --color-primary-bg: var(--background-primary);
@@ -28,10 +37,16 @@
     --color-primary-font: var(--font-primary);
     --color-muted-font: var(--font-muted);
     --color-primary-bd: var(--border-primary);
+
+    --color-pink-bg: var(--pink-bg);
+    --color-amber-bg: var(--amber-bg);
+    --color-cyan-bg: var(--cyan-bg);
+
     --font-inter: "Inter";
     --font-noto-sans-jp: "Noto Sans JP";
     --font-aux-mono: "Aux Mono";
 }
+
 @font-face {
     font-family: "Aux Mono";
     src: url("/fonts/AuxMono-Regular.eot");

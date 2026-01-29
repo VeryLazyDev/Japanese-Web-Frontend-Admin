@@ -4,7 +4,7 @@ import TeamSection from "./components/team-section";
 const AboutUs = () => {
     return (
         <>
-            <div className="bg-transparent w-90 sm:w-150 lg:w-250 mt-15 h-auto flex flex-col justify-center pt-3 pb-10 px-5">
+            
                 <section className="bg-transparent w-full h-auto mt-10 mb-10">
                     <h1 className="font-semibold text-xl w-full">About Us</h1>
 
@@ -24,7 +24,7 @@ const AboutUs = () => {
                         We aren’t just building a tool; we’re building the digital study hall we always wanted. </p>
                 </section>
                 <TeamSection></TeamSection>
-            </div>
+            
         </>
     )
 }
