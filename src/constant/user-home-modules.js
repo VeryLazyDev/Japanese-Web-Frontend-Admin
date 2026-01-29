@@ -34,7 +34,7 @@ export const modules = [
         kanji: "読",
         bgColor: "bg-cyan-200",
         kanjiColor: "text-cyan-700",
-        path: "/reading-modules",
+        path: "/reading-levels",
     },
     {
         id: 2,
@@ -59,7 +59,7 @@ export const modules = [
         description: "Develop listening skills for your upcoming test",
         kanji: "聞",
         bgColor: "bg-pink-200",
-        kanjiColor: "text-pink-700",
+        kanjiColor: "text-pink-600",
     },
     {
         id: 5,

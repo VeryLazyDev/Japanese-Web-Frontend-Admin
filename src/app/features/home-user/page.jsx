@@ -1,29 +1,22 @@
 import LevelFilter from "./components/level-filter";
 import ModuleList from "./components/module-list";
+import { logos } from "@/constant/user-home-modules";
 
 const HomePageUser = () => {
     return (
         <>
-            <div className="bg-transparent w-full h-auto mt-15 flex justify-center pt-3 pb-10">
+            
                 <div className="bg-transparent w-auto">
-                    <div className="bg-transparent w-full h-auto py-5">
-                        <h1 className="font-inter font-semibold w-auto">
-                            Select Your Level
-                        </h1>
-                        <p className="text-xs text-muted-font w-auto mt-2">
-                            Choose your JLPT level ( Japanese Language
-                            Proficiency Test )
-                        </p>
-                        <p className="text-xs text-muted-font w-auto">
-                            to get personalized content
-                        </p>
+                    <div className=" w-full h-auto mt-6 mb-2">
+                        <img src={logos.logo} alt="logo" className="w-15"/>
+                        <h1 className="font-semibold text-xl mt-4">Welcome to Motto,</h1>
+                        <p className="font-normal text-sm text-muted-font mt-1">Ready to Start your journey? Pick a module below to master your fluency.</p>
                     </div>
 
-                    <LevelFilter></LevelFilter>
                     <ModuleList></ModuleList>
                 </div>
-            </div>
+            
         </>
     );
-};
+};  
 export default HomePageUser;

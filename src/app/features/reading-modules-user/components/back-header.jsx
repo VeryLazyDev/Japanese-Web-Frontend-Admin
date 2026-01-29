@@ -12,7 +12,7 @@ const BackHeader = ({ title }) => {
                 <button onClick={() => navigate("/")} className="w-10 h-10 cursor-pointer">
                     <ArrowLeft />
                 </button>
-                <h1 className="font-semibold">{title}</h1>
+                <h1 className="font-semibold text-xl">{title}</h1>
                 <LevelBadge level={"N4"}></LevelBadge>
             </div>
         </>

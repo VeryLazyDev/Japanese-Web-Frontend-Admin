@@ -39,7 +39,7 @@ const ModuleCard = ({
                             className={`rounded-full ${bgColor} w-15 h-15 flex items-center justify-center`}
                         >
                             <p
-                                className={`font-noto-sans-jp font-semibold text-2xl ${kanjiColor}`}
+                                className={`font-noto-sans-jp font-medium text-2xl ${kanjiColor}`}
                             >
                                 {kanji}
                             </p>

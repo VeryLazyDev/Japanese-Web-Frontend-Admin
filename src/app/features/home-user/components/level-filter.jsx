@@ -7,7 +7,7 @@ const LevelFilter = () => {
 
     return(
         <>
-        <div className="bg-transparent w-full h-auto">
+        <div className="bg-transparent w-full h-auto px-4">
             <FilterBtn onClick={() => setFocus(0)}
             currentFocus={focus === 0} text="N5"></FilterBtn>
             <FilterBtn onClick={() => setFocus(1)}
