@@ -44,6 +44,7 @@ export const modules = [
         kanji: "字",
         bgColor: "bg-fuchsia-200",
         kanjiColor: "text-fuchsia-700",
+        path: "/kanji-levels"
     },
     {
         id: 3,
