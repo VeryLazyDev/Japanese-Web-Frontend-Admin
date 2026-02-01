@@ -1,0 +1,8 @@
+{
+  "user": {
+    "hello": "Hello"
+  },
+  "admin": {
+    "hello": "Hi"
+  }
+}
