@@ -1,4 +1,5 @@
-import { Book, AlarmClockIcon } from "lucide-react";
+import { Book, CircleQuestionMark } from "lucide-react";
+import { TbCardsFilled } from "react-icons/tb";
 import { MdBolt } from "react-icons/md";
 import startSfx from "../assets/sfx/startSfx.mp3";
 import logo from "../assets/icons/logo.png"
@@ -14,7 +15,7 @@ export const readingModules = [
         title: "jlpt reading",
         icon: Book,
         desc: "Strategically selected exercises to equip you with essential skills for the tests.",
-        color: "white text-3xl",
+        style: "white text-3xl",
     },
     {
         id: 2,
@@ -24,6 +25,23 @@ export const readingModules = [
         style: "text-amber-400 text-3xl",
     },
 ];
+
+export const KanjiModules = [
+    {
+        id: 1,
+        title: "FlashCards",
+        icon: TbCardsFilled,
+        desc: "Review & memorize kanji at your own pace, no pressure",
+        style: "text-pink-500 text-3xl",
+    },
+    {
+        id: 2,
+        title: "quizes",
+        icon: CircleQuestionMark,
+        desc: "Test your kanji knowledge with multiple choice questions",
+        style: "text-amber-400 text-3xl",
+    },
+]
 
 export const modules = [
     {
@@ -44,6 +62,7 @@ export const modules = [
         kanji: "字",
         bgColor: "bg-fuchsia-200",
         kanjiColor: "text-fuchsia-700",
+        path: "/kanji-levels"
     },
     {
         id: 3,

@@ -22,7 +22,7 @@ const ModuleCard = ({
                 onMouseLeave={onMouseLeave}
                 onClick={() => navigate(path)}
                 className="module-card border-primary-bd bg-secondary-bg w-full h-42 p-6 border rounded-lg cursor-pointer
-            hover:shadow-md transition-all duration-200 group"
+            hover:shadow-md active:scale-95 transition-all duration-200 group"
             >
                 <div className="flex w-full">
                     <div className="w-full h-auto">
@@ -48,8 +48,8 @@ const ModuleCard = ({
                 </div>
 
                 <div className="bg-transparent w-full h-12 pt-5 flex justify-between">
-                    <p className="text-neutral-500 group-hover:text-emerald-500  group-hover:underline text-xs">Start learning</p>
-                    <ChevronRight size={18} className="text-muted-font group-hover:text-emerald-500" />
+                    <p className="text-neutral-500 group-hover:text-pink-500  group-hover:underline text-xs">Start learning</p>
+                    <ChevronRight size={18} className="text-muted-font group-hover:text-pink-500" />
                 </div>
             </div>
         </>

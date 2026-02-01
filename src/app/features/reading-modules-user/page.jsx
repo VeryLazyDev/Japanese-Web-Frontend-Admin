@@ -1,7 +1,7 @@
 import Card from "./components/card";
 import BackHeader from "./components/back-header";
 import { readingModules } from "@/constant/user-home-modules";
-import { useState } from "react";
+import {useState } from "react";
 import SpeedrunPopup from "./components/speedrun-popup";
 
 
@@ -10,12 +10,8 @@ const ReadingModulePage = () => {
 
     const [isOpen, setIsOpen] = useState(false) // speedrun-popup
 
-
-
     return (
         <>
-            
-
                 {isOpen && (
                     <div className='bg-black/80 fixed inset-0 z-50 flex items-center justify-center'>
                         <SpeedrunPopup close={() => setIsOpen(false)}/>

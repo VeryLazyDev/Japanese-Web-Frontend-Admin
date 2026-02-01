@@ -1,9 +1,10 @@
 import HomePageUser from "../features/home-user/page";
-import NewExercisePage from "../features/new-excercise/page";
 import ReadingModulePage from "../features/reading-modules-user/page";
 import AboutUs from "../features/aboutus-user/page";
 import HomeUserWrapper from "../features/home-user/wrapper";
-import ReadingLevelSelect from "../features/reading-level-select/page";
+import LevelSelectPage from "../features/level-select-page/page";
+import { ReadingLevels, KanjiLevels } from "@/constant/levels";
+import KanjiModulesPage from "../features/kanji-modules-page/page";
 
 /** @type {import('react-router-dom').RouteObject[]} */
 const UserRoutes = [
@@ -16,12 +17,20 @@ const UserRoutes = [
         element: <ReadingModulePage />,
     },
     {
+        path: "/kanji-modules",
+        element: <KanjiModulesPage />,
+    },
+    {
         path: "/aboutus",
         element: <AboutUs />,
     },
     {
         path: "/reading-levels",
-        element: <ReadingLevelSelect />,
+        element: <LevelSelectPage title={"Reading Master"} levels={ReadingLevels} />,
+    },
+    {
+        path: "/kanji-levels",
+        element: <LevelSelectPage title={"Kanji Master"} levels={KanjiLevels}/>,
     },
 ];
 export default UserRoutes;
