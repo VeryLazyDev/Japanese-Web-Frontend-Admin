@@ -9,7 +9,8 @@ export const ReadingLevels = [
         desc: "Foundations",
         kanji: "~ 100 kanji",
         bg: "bg-cyan-bg",
-        color: "text-cyan-500"
+        color: "text-cyan-500",
+        nextPath: "/reading-modules"
     },
     {
         id: 2,
@@ -38,7 +39,8 @@ export const KanjiLevels = [
         title: "Beginner",
         desc: "~ 100 kanji",
         bg: "bg-cyan-bg",
-        color: "text-cyan-500"
+        color: "text-cyan-500",
+        nextPath: "/kanji-modules"
     },
     {
         id: 2,

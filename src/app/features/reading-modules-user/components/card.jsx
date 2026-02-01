@@ -12,7 +12,7 @@ const Card = ({ title, Icon, desc, style, onClick }) => {
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
                 className="border border-primary-bd  bg-secondary-bg w-full h-auto p-6 rounded-lg cursor-pointer
-           hover:shadow-md transition-all duration-200 select-none"
+           hover:shadow-md active:scale-95 transition-all duration-200 select-none"
             >
                 <div className="flex justify-between">
                     {Icon && <Icon className={style} />}

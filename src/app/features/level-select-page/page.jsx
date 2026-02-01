@@ -22,7 +22,7 @@ const LevelSelectPage = ({title, levels}) => {
             <section className="bg-transparent w-full h-auto mt-10 gap-3 grid grid-cols-1 lg:grid-cols-3">
                 {levels.map((item) => (
                     <LevelCard key={item.id} level={item.level} title={item.title} desc={item.desc}
-                    bg={item.bg} color={item.color}/>
+                    bg={item.bg} color={item.color} nextPath={levels[0].nextPath}/>
                 ))}
             </section>
 

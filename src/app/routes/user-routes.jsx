@@ -4,6 +4,7 @@ import AboutUs from "../features/aboutus-user/page";
 import HomeUserWrapper from "../features/home-user/wrapper";
 import LevelSelectPage from "../features/level-select-page/page";
 import { ReadingLevels, KanjiLevels } from "@/constant/levels";
+import KanjiModulesPage from "../features/kanji-modules-page/page";
 
 /** @type {import('react-router-dom').RouteObject[]} */
 const UserRoutes = [
@@ -16,12 +17,16 @@ const UserRoutes = [
         element: <ReadingModulePage />,
     },
     {
+        path: "/kanji-modules",
+        element: <KanjiModulesPage />,
+    },
+    {
         path: "/aboutus",
         element: <AboutUs />,
     },
     {
         path: "/reading-levels",
-        element: <LevelSelectPage title={"Reading Master"} levels={ReadingLevels}/>,
+        element: <LevelSelectPage title={"Reading Master"} levels={ReadingLevels} />,
     },
     {
         path: "/kanji-levels",
