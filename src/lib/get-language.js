@@ -1,10 +1,11 @@
 export const getLanguage = () => {
-  const lang = localStorage.getItem("lang");
-  if (!lang) {
-    localStorage.setItem(
-      "lang",
-      JSON.stringify({ language: "English", code: "en" }),
-    );
-  }
-  return lang || { language: "English", code: "en" };
+    const localLang = localStorage.getItem("language");
+    const localLangJson = JSON.parse(localLang);
+    if (!localLang) {
+        localStorage.setItem(
+            "lang",
+            JSON.stringify({ language: "English", code: "en" }),
+        );
+    }
+    return localLangJson || { language: "English", code: "en" };
 };

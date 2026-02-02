@@ -6,12 +6,15 @@ import { RouterProvider } from "react-router-dom";
 import router from "./app/routes/route";
 import { AnimationProvider } from "./context/animation-provider";
 import { ThemeProvider } from "./context/theme-provider";
+import { LanguageProvider } from "./context/language-provider.jsx";
 createRoot(document.getElementById("root")).render(
-  <Providers>
-    <AnimationProvider>
-      <ThemeProvider>
-        <RouterProvider router={router} />
-      </ThemeProvider>
-    </AnimationProvider>
-  </Providers>,
+    <Providers>
+        <LanguageProvider>
+            <AnimationProvider>
+                <ThemeProvider>
+                    <RouterProvider router={router} />
+                </ThemeProvider>
+            </AnimationProvider>
+        </LanguageProvider>
+    </Providers>,
 );

@@ -1,8 +1,13 @@
 {
-  "user": {
-    "hello": "Hello"
-  },
-  "admin": {
-    "hello": "Hi"
-  }
+    "user": {
+        "greeting 1": "Welcome to Motto,",
+        "greeting 2": "Ready to Start your journey? Pick a module below to master your fluency.",
+        "start-learning": "Start Learning",
+        "reading-module-desc": "Improve your reading comprehension with texts tailored to your level",
+        "kanji-module-desc": "Learn, review and master kanji meanings, readings, and usage",
+        "grammar-module-desc": "Learn grammar patterns with practical examples",
+        "listening-module-desc": "Develop listening skills for your upcoming test",
+        "vocabulary-module-desc": "Build your word bank with spaced repitition"
+    },
+    "admin": {}
 }

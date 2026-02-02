@@ -1,8 +1,13 @@
 {
-  "user": {
-    "hello": "HelloMM"
-  },
-  "admin": {
-    "hello": "HiMM"
-  }
+    "user": {
+        "greeting 1": "Motto မှ ကြိုဆိုပါတယ်,",
+        "greeting 2": "သင့်ခရီးကို စတင်ရန် အဆင်သင့်ဖြစ်ပြီလား။ သင်၏ ကျွမ်းကျင်မှုကို ကျွမ်းကျင်စေရန် အောက်ပါ Module တစ်ခုကို ရွေးချယ်ပါ။",
+        "start-learning": "သင်ယူမှုစတင်ပါ",
+        "reading-module-desc": "သင့်အဆင့်နှင့် ကိုက်ညီသော စာသားများဖြင့် စာဖတ်နားလည်မှုကို ပိုမိုကောင်းမွန်အောင် လေ့လာပါ။",
+        "kanji-module-desc": "Kanji ရဲ့ meaning၊ reading နဲ့ usage တွေကို learn၊ review လုပ်ပြီး master ဖြစ်အောင် လေ့လာပါ။",
+        "grammar-module-desc": "Practical examples တွေနဲ့ grammar patterns ကို လေ့လာပါ",
+        "listening-module-desc": "သင့် upcoming test အတွက် listening skills ကို တိုးတက်ရန်လေ့လာပါ",
+        "vocabulary-module-desc": "Spaced repetition ကို အသုံးပြုပြီး သင့် word bank ကို တည်ဆောက်ပါ"
+    },
+    "admin": {}
 }

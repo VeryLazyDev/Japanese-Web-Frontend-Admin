@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import ModuleCard from "./module-card";
 import { modules } from "@/constant/user-home-modules";
 const ModuleList = () => {
+    const { t } = useTranslation();
     return (
         <>
             <section className="flex flex-col items-center mt-10 w-full">
@@ -13,7 +15,12 @@ const ModuleList = () => {
                         <ModuleCard
                             key={item.id}
                             title={item.title}
-                            description={item.description}
+                            // description={item.description}
+                            description={t(
+                                "user." +
+                                    item.title.toLowerCase() +
+                                    "-module-desc",
+                            )}
                             kanji={item.kanji}
                             bgColor={item.bgColor}
                             kanjiColor={item.kanjiColor}
@@ -22,7 +29,6 @@ const ModuleList = () => {
                     ))}
                 </div>
             </section>
-
         </>
     );
 };

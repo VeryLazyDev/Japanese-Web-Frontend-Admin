@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import useAnimation from "../../../../hooks/useAnimation";
+import { useTranslation } from "react-i18next";
 
 const ModuleCard = ({
     title,
@@ -14,7 +15,7 @@ const ModuleCard = ({
     const {
         hoverModuleCardAnimation: { onMouseEnter, onMouseLeave },
     } = useAnimation();
-
+    const { t } = useTranslation();
     return (
         <>
             <div
@@ -48,8 +49,14 @@ const ModuleCard = ({
                 </div>
 
                 <div className="bg-transparent w-full h-12 pt-5 flex justify-between">
-                    <p className="text-neutral-500 group-hover:text-pink-500  group-hover:underline text-xs">Start learning</p>
-                    <ChevronRight size={18} className="text-muted-font group-hover:text-pink-500" />
+                    <p className="text-neutral-500 group-hover:text-pink-500  group-hover:underline text-xs">
+                        {/* Start learning*/}
+                        {t("user.start-learning")}
+                    </p>
+                    <ChevronRight
+                        size={18}
+                        className="text-muted-font group-hover:text-pink-500"
+                    />
                 </div>
             </div>
         </>
