@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FilterBtn from "./filter-btn";
-import { Pencil } from "lucide-react";
 import { MdEdit } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 
 const QuestionFilter = () => {
     const [currentFocus, setCurrentFocus] = useState(0);
@@ -30,9 +30,13 @@ const QuestionFilter = () => {
                 <button className="w-7 h-7 bg-light-bg text-muted-font flex items-center justify-center rounded-full cursor-pointer">
                     <MdEdit className="text-primary " />
                 </button>
-                <button className="bg-teal-200 px-5 h-7 text-xs font-medium text-teal-700 rounded-sm cursor-pointer hover:brightness-80 transition-all duration-100">
+                <NavLink
+                    to={"/admin/new-exercise"}
+                    className="bg-teal-200 px-5 py-2 text-xs font-medium
+                    text-teal-700 rounded-sm cursor-pointer hover:brightness-80 transition-all duration-100"
+                >
                     Create +
-                </button>
+                </NavLink>
             </div>
         </div>
     );
