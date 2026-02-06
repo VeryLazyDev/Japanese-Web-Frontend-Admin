@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 package-lock.json
+<<<<<<< HEAD
+=======
+public/*.json
+>>>>>>> 3299204 (add)
