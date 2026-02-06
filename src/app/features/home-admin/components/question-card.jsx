@@ -26,8 +26,8 @@ const QuestionCard = ({ id, paragraph }) => {
         </div>
 
         {/* Paragraph d mhr */}
-        <div className="max-w-58 h-20 text-xs text-muted-font font-noto-sans-jp bg-transparent pt-3 overflow-hidden">
-          {paragraph}.....
+        <div className="max-w-58 h-20 text-xs text-muted-font font-noto-sans-jp bg-transparent pt-3 overflow-hidden line-clamp-4">
+          {paragraph}
         </div>
       </div>
     </>
