@@ -1,6 +1,16 @@
 import { paragarphLevel, paragarphType } from "@/constant/paragraph-data";
 import { createContext, useRef, useState } from "react";
 const QuestionStateContext = createContext();
+<<<<<<< HEAD
+=======
+const GetFuriganaData = async (FuriganaLoaded) => {
+  // if (FuriganaLoaded) return [];
+  // const { data } = await axios("/IndexedJmdictFurigana.json");
+  // const { data: data2 } = await axios("/IndexedJmnedictFurigana.json");
+  // const AllKanjiFurigana = [...data, ...data2];
+  // return { data: AllKanjiFurigana };
+};
+>>>>>>> f5ba93a (Add setting for loading furigana data)
 const QuestionStateProvider = ({ children }) => {
     const [paragraph, setParagraph] = useState("");
     const [Questions, setQuestions] = useState([

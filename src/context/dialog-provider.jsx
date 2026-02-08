@@ -7,12 +7,29 @@ const DialogProvider = ({ children }) => {
   const PushDialog = (dialog) => {
     setDialogs([...Dialogs, dialog]);
   };
-  const PopDialog = () => {
+  const CloseCurrentDialog = () => {
     setDialogs(Dialogs.slice(1));
   };
-
+  const CloseDialogWithId = (id) => {
+    setDialogs(Dialogs.filter((dialog) => dialog.id !== id));
+  };
+  const UpdateDialogMessage = (id, message) => {
+    setDialogs(
+      Dialogs.map((dialog) =>
+        dialog.id === id ? { ...dialog, message } : dialog,
+      ),
+    );
+  };
   return (
-    <DialogContext.Provider value={{ PushDialog, PopDialog, Dialogs }}>
+    <DialogContext.Provider
+      value={{
+        PushDialog,
+        CloseCurrentDialog,
+        CloseDialogWithId,
+        Dialogs,
+        UpdateDialogMessage,
+      }}
+    >
       {children}
     </DialogContext.Provider>
   );

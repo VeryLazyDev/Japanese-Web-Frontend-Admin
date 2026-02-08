@@ -1,5 +1,5 @@
 const IsFuriganaLoaded = () => {
-    const bol = localStorage.getItem("furigana_loaded");
-    return bol == true;
+  const bol = localStorage.getItem("furigana-loaded");
+  return JSON.parse(bol) == true;
 };
 export { IsFuriganaLoaded };
