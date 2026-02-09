@@ -1,36 +1,21 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
+import DOMPurify from "dompurify";
 
 const FuriganaRenderer = ({ text }) => {
-  const regex =
-    /furiganated\$\{kanji\$\{(.*?)\}\$kanji furi\$\{(.*?)\}\$furi\}\$furiganated/g;
-  const parsedContent = useMemo(() => {
-    const parts = text.split(regex);
+    const sanitizedHtml = useMemo(() => {
+        return DOMPurify.sanitize(text, {
+            USE_PROFILES: { html: true },
+            ALLOWED_TAGS: ["div", "span", "ruby", "rt", "rb", "p", "br"],
+            ALLOWED_ATTR: ["class"],
+        });
+    }, [text]);
 
-    return parts.map((part, index) => {
-      if (index % 3 === 1) {
-        const kanji = part;
-        const furi = parts[index + 1];
-
-        return (
-          <div
-            key={index}
-            className="inline-flex flex-col items-center mx-0.5 align-bottom overflow-auto"
-          >
-            <span className="text-[10px] -mb-1 text-gray-500">{furi}</span>
-            <span className="text-base">{kanji}</span>
-          </div>
-        );
-      }
-
-      if (index % 3 === 2) {
-        return null;
-      }
-
-      return <span key={index}>{part}</span>;
-    });
-  }, [text]);
-
-  return <div className="leading-loose">{parsedContent}</div>;
+    return (
+        <div
+            className="leading-loose"
+            dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
+        />
+    );
 };
 
 export default FuriganaRenderer;

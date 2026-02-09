@@ -1,16 +1,8 @@
 import { paragarphLevel, paragarphType } from "@/constant/paragraph-data";
-import { createContext, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
+import usePreview from "../hooks/usePreview";
 const QuestionStateContext = createContext();
-<<<<<<< HEAD
-=======
-const GetFuriganaData = async (FuriganaLoaded) => {
-  // if (FuriganaLoaded) return [];
-  // const { data } = await axios("/IndexedJmdictFurigana.json");
-  // const { data: data2 } = await axios("/IndexedJmnedictFurigana.json");
-  // const AllKanjiFurigana = [...data, ...data2];
-  // return { data: AllKanjiFurigana };
-};
->>>>>>> f5ba93a (Add setting for loading furigana data)
+
 const QuestionStateProvider = ({ children }) => {
     const [paragraph, setParagraph] = useState("");
     const [Questions, setQuestions] = useState([
@@ -21,6 +13,8 @@ const QuestionStateProvider = ({ children }) => {
     ]);
 
     const [previewMode, setPreviewMode] = useState("edit");
+    const [preview, setPreview] = useState("");
+    const { CreatePreviewObject } = usePreview(paragraph);
     const lastQuestionId = useRef(1);
     const [currentKanjiLevel, setCurrentKanjiLevel] = useState(
         paragarphLevel[0],
@@ -59,6 +53,14 @@ const QuestionStateProvider = ({ children }) => {
         setParagraph(e.target.value);
     };
 
+    //This will handle the furiganation of paragraph
+
+    useEffect(() => {
+        const Update = () => {
+            setPreview(CreatePreviewObject(paragraph));
+        };
+        Update();
+    }, [previewMode, setPreview, CreatePreviewObject, paragraph]);
     return (
         <QuestionStateContext.Provider
             value={{
@@ -75,6 +77,7 @@ const QuestionStateProvider = ({ children }) => {
                 handleOnParagraphChange,
                 previewMode,
                 setPreviewMode,
+                preview,
             }}
         >
             {children}

@@ -1,4 +1,3 @@
-import LoadingDialog from "@/components/dialogs/loading-dialog/loading-dialog";
 import useDialogs from "@/hooks/useDialogs";
 import useStorage from "@/hooks/useStorage";
 import { IsFuriganaLoaded } from "@/lib/get-furigana";
@@ -8,107 +7,130 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 const useFuriganaSetting = () => {
-  const [Loaded, setLoaded] = useState(IsFuriganaLoaded);
-  const [isDownloaded, setIsDownloaded] = useState(false);
-  const { PutFuriganaDataToStorage } = useStorage();
-  const { PushDialog, CloseDialogWithId, UpdateDialogMessage } = useDialogs();
-  const CHUNK_SIZE = 500;
-  const LoadFuriganaData = async () => {
-    const { data: KanjiData, headers: KanjiDataHeaders } = await axios.get(
-      "/IndexedJmdictFurigana.json",
-    );
-    const { data: NameData, headers: NameDataHeaders } = await axios.get(
-      "/IndexedJmnedictFurigana.json",
-    );
-    const KanjiDataResType = KanjiDataHeaders["content-type"];
-    const NameDataResType = NameDataHeaders["content-type"];
-    if (
-      KanjiDataResType != "application/json" &&
-      NameDataResType != "application/json"
-    ) {
-      throw new Error("Invalid response type");
-    }
-    const AllFuriganaData = [...KanjiData, ...NameData];
-    return AllFuriganaData;
-  };
+    const [Loaded, setLoaded] = useState(IsFuriganaLoaded);
+    const [isDownloaded, setIsDownloaded] = useState(false);
+    const { PutFuriganaKanjiDataToStorage, PutFuriganaNamesDataToStorage } =
+        useStorage();
+    const { PushDialog, CloseDialogWithId, UpdateDialogMessage } = useDialogs();
+    const CHUNK_SIZE = 500;
+    const LoadFuriganaData = async () => {
+        const { data: KanjiData, headers: KanjiDataHeaders } = await axios.get(
+            "/IndexedJmdictFurigana.json",
+        );
+        const { data: NameData, headers: NameDataHeaders } = await axios.get(
+            "/IndexedJmnedictFurigana.json",
+        );
+        const KanjiDataResType = KanjiDataHeaders["content-type"];
+        const NameDataResType = NameDataHeaders["content-type"];
+        if (
+            KanjiDataResType != "application/json" &&
+            NameDataResType != "application/json"
+        ) {
+            throw new Error("Invalid response type");
+        }
+        const AllFuriganaData = { KanjiData, NameData };
+        return AllFuriganaData;
+    };
 
-  const { mutate, isPending } = useMutation({
-    mutationFn: LoadFuriganaData,
-    onError: (error) => {
-      CloseDialogWithId("furigana-confirm-load");
-      PushDialog({
-        type: "error",
-        message: "Failed to load furigana data : " + error,
-        title: "Error",
-      });
-    },
-    onSuccess: (data) => {
-      setIsDownloaded(true);
-      CloseDialogWithId("furigana-loading");
-      PutAllFuriganaDataToStorage(data);
-    },
-  });
-
-  const PutAllFuriganaDataToStorage = async (furiganaData) => {
-    PushDialog({
-      id: "furigana-loading",
-      type: "loading",
-      message: "Loading furigana data 0%",
+    const { mutate, isPending } = useMutation({
+        mutationFn: LoadFuriganaData,
+        onError: (error) => {
+            CloseDialogWithId("furigana-confirm-load");
+            PushDialog({
+                type: "error",
+                message: "Failed to load furigana data : " + error,
+                title: "Error",
+            });
+        },
+        onSuccess: (data) => {
+            setIsDownloaded(true);
+            CloseDialogWithId("furigana-loading");
+            PutAllFuriganaKanjiDataToStorage(data);
+        },
     });
 
-    const total = furiganaData.length;
+    const PutAllFuriganaKanjiDataToStorage = async (furiganaData) => {
+        PushDialog({
+            id: "furigana-loading",
+            type: "loading",
+            message: "Loading furigana data 0%",
+        });
 
-    for (let i = 0; i < total; i += CHUNK_SIZE) {
-      await PutFuriganaDataToStorage(furiganaData.slice(i, i + CHUNK_SIZE));
+        const total =
+            furiganaData.KanjiData.length + furiganaData.NameData.length;
 
-      const percent = Math.min(
-        100,
-        Math.round(((i + CHUNK_SIZE) / total) * 100),
-      );
-      UpdateDialogMessage(
-        "furigana-loading",
+        for (let i = 0; i < furiganaData.KanjiData.length; i += CHUNK_SIZE) {
+            await PutFuriganaKanjiDataToStorage(
+                furiganaData.KanjiData.slice(i, i + CHUNK_SIZE),
+            );
 
-        `Loading furigana data ${percent}% (${i}/${furiganaData.length})`,
-      );
-    }
-    PushDialog({
-      type: "success",
-      title: "Success",
-      message: "Furigana data loaded successfully",
-      id: "furigana-loaded-success",
-    });
-    localStorage.setItem("furigana-loaded", true);
-    setLoaded(true);
-    CloseDialogWithId("furigana-loading");
-  };
+            const percent = Math.min(
+                100,
+                Math.round(((i + CHUNK_SIZE) / total) * 100),
+            );
+            UpdateDialogMessage(
+                "furigana-loading",
 
-  useEffect(() => {
-    if (isPending && !isDownloaded) {
-      PushDialog({
-        id: "furigana-loading",
-        type: "loading",
-        message: "Downloading furigana data...",
-      });
-    }
-  }, [isPending]);
+                `Loading furigana kanji data ${percent}% (${i}/${total})`,
+            );
+        }
 
-  const OnLoadClick = () => {
-    setIsDownloaded(false);
-    PushDialog({
-      id: "furigana-confirm-load",
-      type: "confirm",
-      title: "Confirmation",
-      message: Loaded
-        ? "You already loaded this. Reload?"
-        : "Load furigana data?",
-      onConfirm: () => {
-        CloseDialogWithId("furigana-confirm-load");
-        mutate();
-      },
-    });
-  };
+        for (let i = 0; i < furiganaData.NameData.length; i += CHUNK_SIZE) {
+            await PutFuriganaNamesDataToStorage(
+                furiganaData.NameData.slice(i, i + CHUNK_SIZE),
+            );
 
-  return { Loaded, OnLoadClick };
+            const percent = Math.min(
+                100,
+                Math.round(
+                    ((furiganaData.KanjiData.length + i + CHUNK_SIZE) / total) *
+                        100,
+                ),
+            );
+            UpdateDialogMessage(
+                "furigana-loading",
+
+                `Loading furigana names data ${percent}% (${furiganaData.KanjiData.length + i}/${total})`,
+            );
+        }
+        PushDialog({
+            type: "success",
+            title: "Success",
+            message: "Furigana data loaded successfully",
+            id: "furigana-loaded-success",
+        });
+        localStorage.setItem("furigana-loaded", true);
+        setLoaded(true);
+        CloseDialogWithId("furigana-loading");
+    };
+
+    useEffect(() => {
+        if (isPending && !isDownloaded) {
+            PushDialog({
+                id: "furigana-loading",
+                type: "loading",
+                message: "Downloading furigana data...",
+            });
+        }
+    }, [isPending]);
+
+    const OnLoadClick = () => {
+        setIsDownloaded(false);
+        PushDialog({
+            id: "furigana-confirm-load",
+            type: "confirm",
+            title: "Confirmation",
+            message: Loaded
+                ? "You already loaded this. Reload?"
+                : "Load furigana data?",
+            onConfirm: () => {
+                CloseDialogWithId("furigana-confirm-load");
+                mutate();
+            },
+        });
+    };
+
+    return { Loaded, OnLoadClick };
 };
 
 export default useFuriganaSetting;
