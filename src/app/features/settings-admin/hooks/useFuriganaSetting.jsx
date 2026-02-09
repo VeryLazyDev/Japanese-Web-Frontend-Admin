@@ -15,20 +15,35 @@ const useFuriganaSetting = () => {
     const CHUNK_SIZE = 500;
     const LoadFuriganaData = async () => {
         const { data: KanjiData, headers: KanjiDataHeaders } = await axios.get(
-            "/IndexedJmdictFurigana.json",
+            "https://proxy.phyoheinko.com?" +
+                encodeURIComponent(
+                    "https://github.com/phy0hk/FuriganaIndexer/releases/download/v2.3.1/IndexedJmdictFurigana.json",
+                ),
         );
+        console.log(KanjiData);
         const { data: NameData, headers: NameDataHeaders } = await axios.get(
-            "/IndexedJmnedictFurigana.json",
+            "https://proxy.phyoheinko.com?" +
+                encodeURIComponent(
+                    "https://github.com/phy0hk/FuriganaIndexer/releases/download/v2.3.1/IndexedJmnedictFurigana.json",
+                ),
         );
+        console.log(NameData);
         const KanjiDataResType = KanjiDataHeaders["content-type"];
         const NameDataResType = NameDataHeaders["content-type"];
-        if (
-            KanjiDataResType != "application/json" &&
-            NameDataResType != "application/json"
-        ) {
+
+        const isValidType = (type) =>
+            type?.includes("application/json") ||
+            type?.includes("application/octet-stream");
+
+        if (!isValidType(KanjiDataResType) || !isValidType(NameDataResType)) {
             throw new Error("Invalid response type");
         }
+
         const AllFuriganaData = { KanjiData, NameData };
+        console.log(
+            AllFuriganaData.KanjiData.length,
+            AllFuriganaData.NameData.length,
+        );
         return AllFuriganaData;
     };
 
