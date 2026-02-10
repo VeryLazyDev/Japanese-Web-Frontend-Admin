@@ -48,9 +48,9 @@ const FuriganaProvider = ({ children }) => {
       if (!furigana) {
         return kanji;
       }
-      return `<div class="inline-flex flex-col items-center mx-0.5 align-bottom overflow-auto">
-                <rt class="text-[10px] -mb-1 text-gray-500">${furigana.data[0].reading}</rt>
-                <ruby class="text-base">$hex{${furigana.id}}</ruby>
+      return `<div class="furigana-container">
+                <rt>${furigana.data[0].reading}</rt>
+                <ruby>${furigana.data[0].text}</ruby>
               </div>`;
     } catch (err) {
       console.error("FuriganaFinder error:", err);
@@ -93,8 +93,9 @@ const FuriganaProvider = ({ children }) => {
     const Update = () => {
       Furiganate(paragraph);
     };
-    const interval = setInterval(Update, 1000);
-    return () => clearInterval(interval);
+    // const interval = setInterval(Update, 1000);
+    // return () => clearInterval(interval);
+    Update();
   }, [paragraph]);
 
   return (

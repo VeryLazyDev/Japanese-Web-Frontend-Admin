@@ -28,7 +28,6 @@
     --cyan-bg: var(--color-cyan-100);
 }
 
-
 @theme {
     --color-primary-bg: var(--background-primary);
     --color-secondary-bg: var(--background-secondary);
@@ -57,4 +56,24 @@
         url("/fonts/AuxMono-Regular.woff2") format("woff2"),
         url("/fonts/AuxMono-Regular.woff") format("woff"),
         url("/fonts/AuxMono-Regular.ttf") format("truetype");
+}
+rt {
+    font-size: 0.8em;
+    margin-bottom: -0.25rem;
+    color: var(--color-gray-500);
+}
+
+ruby {
+    font-size: 1em;
+    line-height: var(--tw-leading, var(--text-base--line-height));
+}
+.furigana-container {
+    padding-bottom: 5px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: calc(var(--spacing) * 0.5);
+    vertical-align: bottom;
+    overflow: auto;
+    font-size: 1em;
 }

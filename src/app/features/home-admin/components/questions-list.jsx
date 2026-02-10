@@ -1,4 +1,4 @@
-import { useEditQuestion } from "../hooks/useEditQuestions";
+import useParagraph from "../hooks/useParagraph";
 // <<<<<<< HEAD
 // import useParagraph from "../hooks/useParagraph";
 // import QuestionCard from "./question-card";
@@ -26,20 +26,21 @@ import { useEditQuestion } from "../hooks/useEditQuestions";
 import QuestionCard from "./question-card";
 
 const QuestionList = () => {
-    const { questionsData } = useEditQuestion();
-    return (
-        <>
-            <div className="mt-5 grid grid-cols-3 max-md:grid-cols-2 grid-rows-3 gap-2 bg-transparent">
-                {questionsData.map((item) => (
-                    <QuestionCard
-                        key={item.id}
-                        id={item.id}
-                        paragraph={item.paragraph}
-                    />
-                ))}
-            </div>
-        </>
-    );
-    // >>>>>>> 3299204 (add)
+  const { paragraphList } = useParagraph();
+  return (
+    <div className="mt-5 max-h-screen">
+      <div className="w-full h-fit grid grid-cols-3 max-md:grid-cols-2 grid-rows-3 gap-2">
+        {paragraphList &&
+          paragraphList.map((item) => (
+            <QuestionCard
+              key={item.id}
+              id={item.id}
+              paragraph={item.paragraph}
+            />
+          ))}
+      </div>
+    </div>
+  );
+  // >>>>>>> 3299204 (add)
 };
 export default QuestionList;

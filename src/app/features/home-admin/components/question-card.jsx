@@ -1,37 +1,41 @@
-import { PencilIcon } from "lucide-react";
 import { useEditQuestion } from "../hooks/useEditQuestions";
 import { MdEdit } from "react-icons/md";
+import FuriganaRenderer from "../../new-excercise/components/furiganated-renderer";
 
 const QuestionCard = ({ id, paragraph }) => {
-    const { openEdit } = useEditQuestion();
-    const handleClick = (e) => {
-        e.stopPropagation();
-        openEdit(id);
-    };
-    return (
-        <>
-            <div
-                id={"question-id-" + id}
-                className="w-auto h-auto p-4 bg-secondary-bg border border-neutral-700 rounded-md cursor-pointer hover:brightness-80 transition-all duration-200"
-            >
-                <div className="flex justify-between">
-                    <h1 className="font-noto-sans-jp font-medium">問題 {id}</h1>
+  const { openEdit } = useEditQuestion();
+  const handleClick = (e) => {
+    e.stopPropagation();
+    openEdit(id);
+  };
+  return (
+    <>
+      <div
+        id={"question-id-" + id}
+        className="w-auto h-auto p-4 bg-secondary-bg border border-neutral-700 rounded-md cursor-pointer hover:brightness-80 transition-all duration-200"
+      >
+        <div className="flex justify-between">
+          <h1 className="font-noto-sans-jp font-medium">問題 {id}</h1>
 
-                    <div
-                        onClick={handleClick}
-                        className="bg-primary w-9 h-9 rounded-full cursor-pointer flex items-center justify-center"
-                    >
-                        <MdEdit className="text-xl text-primary-bg" />
-                    </div>
-                </div>
+          <div
+            onClick={handleClick}
+            className="bg-primary w-9 h-9 rounded-full cursor-pointer flex items-center justify-center"
+          >
+            <MdEdit className="text-xl text-primary-bg" />
+          </div>
+        </div>
 
-                {/* Paragraph d mhr */}
-                <div className="max-w-58 h-20 text-xs text-muted-font font-noto-sans-jp bg-transparent pt-3 overflow-hidden line-clamp-4">
-                    {paragraph}
-                </div>
-            </div>
-        </>
-    );
+        {/* Paragraph d mhr */}
+        <div className="max-w-58 h-20 text-xs text-muted-font font-noto-sans-jp pt-3 overflow-hidden line-clamp-4">
+          <FuriganaRenderer
+            text={paragraph}
+            className="line-clamp-4"
+            furigana={false}
+          />
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default QuestionCard;
