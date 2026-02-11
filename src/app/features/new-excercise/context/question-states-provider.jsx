@@ -1,6 +1,5 @@
 import { paragarphLevel, paragarphType } from "@/constant/paragraph-data";
-import { createContext, useEffect, useRef, useState } from "react";
-import usePreview from "../hooks/usePreview";
+import { createContext, useRef, useState } from "react";
 const QuestionStateContext = createContext();
 
 const QuestionStateProvider = ({ children }) => {
@@ -13,8 +12,6 @@ const QuestionStateProvider = ({ children }) => {
     ]);
 
     const [previewMode, setPreviewMode] = useState("edit");
-    const [preview, setPreview] = useState("");
-    const { CreatePreviewObject } = usePreview(paragraph);
     const lastQuestionId = useRef(1);
     const [currentKanjiLevel, setCurrentKanjiLevel] = useState(
         paragarphLevel[0],
@@ -53,14 +50,6 @@ const QuestionStateProvider = ({ children }) => {
         setParagraph(e.target.value);
     };
 
-    //This will handle the furiganation of paragraph
-
-    useEffect(() => {
-        const Update = () => {
-            setPreview(CreatePreviewObject(paragraph));
-        };
-        Update();
-    }, [previewMode, setPreview, CreatePreviewObject, paragraph]);
     return (
         <QuestionStateContext.Provider
             value={{
@@ -77,7 +66,6 @@ const QuestionStateProvider = ({ children }) => {
                 handleOnParagraphChange,
                 previewMode,
                 setPreviewMode,
-                preview,
             }}
         >
             {children}
