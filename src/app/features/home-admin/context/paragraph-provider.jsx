@@ -4,7 +4,25 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { createContext } from "react";
-const ParagraphContext = createContext();
+
+const ParagraphContext = createContext({
+  paragraphList: [],
+  isLoading: false,
+  isRefetching: false,
+  error: null,
+  deleteParagraph: async () => {},
+  filter: {
+    page: 0,
+    size: 10,
+    level: "N5",
+    paragraphType: "SHORT",
+  },
+  setFilter: () => {},
+  openFIlter: false,
+  setOpenFilter: () => {},
+  handleOpenFilter: () => {},
+  handleCloseFilter: () => {},
+});
 
 const FetchAllParagraph = async (filter) => {
   var query = `?page=${filter.page}&size=${filter.size}&level=${filter.level}&paragraphType=${filter.paragraphType}`;
@@ -22,8 +40,8 @@ const ParagraphProvider = ({ children }) => {
     level: "N5",
     paragraphType: "SHORT",
   });
-
-  const { data, isPending, error, refetch } = useQuery({
+  const [openFilter, setOpenFilter] = useState(false);
+  const { data, isLoading, isRefetching, error, refetch } = useQuery({
     queryKey: ["paragraph"],
     queryFn: () => FetchAllParagraph(filter),
   });
@@ -77,19 +95,33 @@ const ParagraphProvider = ({ children }) => {
     }
   };
 
+  const handleOpenFilter = () => {
+    setOpenFilter(true);
+  };
+
+  const handleCloseFilter = () => {
+    setOpenFilter(false);
+  };
+
   return (
     <ParagraphContext.Provider
       value={{
         paragraphList,
-        isPending,
+        isLoading,
+        isRefetching,
         error,
         deleteParagraph,
         filter,
         setFilter,
+        openFilter,
+        setOpenFilter,
+        handleOpenFilter,
+        handleCloseFilter,
       }}
     >
       {children}
     </ParagraphContext.Provider>
   );
 };
+
 export { ParagraphContext, ParagraphProvider };

@@ -1,38 +1,38 @@
 import { useState } from "react";
 import FilterBtn from "./filter-btn";
 import {
-    MdEdit,
-    MdFilter,
-    MdFilter1,
-    MdFilter3,
-    MdFilterAlt,
-    MdFilterListAlt,
+  MdEdit,
+  MdFilter,
+  MdFilter1,
+  MdFilter3,
+  MdFilterAlt,
+  MdFilterListAlt,
 } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { paragraphType } from "@/constant/paragraph-data";
 import useParagraph from "../hooks/useParagraph";
 
 const QuestionFilter = () => {
-    const [currentFocus, setCurrentFocus] = useState("SHORT");
-    const { setFilter } = useParagraph();
-    return (
-        <div className="flex justify-between mt-10 h-fit bg-transparent">
-            {/* Left */}
-            <div className="flex gap-1 flex-wrap">
-                {paragraphType.map((item) => (
-                    <FilterBtn
-                        text={item.value}
-                        onClick={() => {
-                            setCurrentFocus(item.value);
-                            setFilter((prev) => ({
-                                ...prev,
-                                paragraphType: item.value,
-                            }));
-                        }}
-                        currentFocus={currentFocus === item.value}
-                    />
-                ))}
-                {/* <FilterBtn
+  const [currentFocus, setCurrentFocus] = useState("SHORT");
+  const { setFilter, handleOpenFilter } = useParagraph();
+  return (
+    <div className="flex justify-between mt-10 h-fit bg-transparent">
+      {/* Left */}
+      <div className="flex gap-1 flex-wrap">
+        {paragraphType.map((item) => (
+          <FilterBtn
+            text={item.value}
+            onClick={() => {
+              setCurrentFocus(item.value);
+              setFilter((prev) => ({
+                ...prev,
+                paragraphType: item.value,
+              }));
+            }}
+            currentFocus={currentFocus === item.value}
+          />
+        ))}
+        {/* <FilterBtn
           text={"Short"}
           onClick={() => setCurrentFocus(0)}
           currentFocus={currentFocus === 0}
@@ -47,21 +47,24 @@ const QuestionFilter = () => {
           onClick={() => setCurrentFocus(2)}
           currentFocus={currentFocus === 2}
         ></FilterBtn>*/}
-            </div>
-            {/* Right */}
-            <div className="bg-transparent w-32 h-full flex justify-between">
-                <button className="w-7 h-7 bg-light-bg text-muted-font flex items-center justify-center rounded-full cursor-pointer">
-                    <MdFilterListAlt className="text-primary " />
-                </button>
-                <NavLink
-                    to={"/admin/new-exercise"}
-                    className="bg-teal-200 px-5 py-2 text-xs font-medium
+      </div>
+      {/* Right */}
+      <div className="bg-transparent w-32 h-full flex justify-between">
+        <button
+          className="w-7 h-7 bg-light-bg text-muted-font flex items-center justify-center rounded-full cursor-pointer"
+          onClick={handleOpenFilter}
+        >
+          <MdFilterListAlt className="text-primary " />
+        </button>
+        <NavLink
+          to={"/admin/new-exercise"}
+          className="bg-teal-200 px-5 py-2 text-xs font-medium
                     text-teal-700 rounded-sm cursor-pointer hover:brightness-80 transition-all duration-100"
-                >
-                    Create +
-                </NavLink>
-            </div>
-        </div>
-    );
+        >
+          Create +
+        </NavLink>
+      </div>
+    </div>
+  );
 };
 export default QuestionFilter;

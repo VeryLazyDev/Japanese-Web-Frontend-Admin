@@ -41,6 +41,7 @@ const EditQuestionCard = ({ question }) => {
                     type="radio"
                     // name={`correct-${activeQuestionNo}`}
                     checked={item.correct_answer}
+                    onChange={() => {}}
                   />
                   Correct
                 </label>
