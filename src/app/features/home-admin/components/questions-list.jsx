@@ -1,35 +1,19 @@
 import useParagraph from "../hooks/useParagraph";
-// <<<<<<< HEAD
-// import useParagraph from "../hooks/useParagraph";
-// import QuestionCard from "./question-card";
-
-// const QuestionList = () => {
-//   const { questionsData } = useEditQuestion();
-//   const { data } = useParagraph();
-//   return (
-//     <>
-//       <div className="overflow-auto">
-//         <div className="mt-5 grid grid-cols-3 max-md:grid-cols-2 grid-rows-3 gap-2 h-fit pb-5">
-//           {data &&
-//             data.content.map((item) => (
-//               <QuestionCard
-//                 key={item.id}
-//                 id={item.id}
-//                 paragraph={item.paragraph}
-//               />
-//             ))}
-//         </div>
-//       </div>
-//     </>
-//   );
-// =======
+import { Loader2 } from "lucide-react";
 import QuestionCard from "./question-card";
 
 const QuestionList = () => {
-  const { paragraphList } = useParagraph();
+  const { paragraphList, isLoading, isRefetching } = useParagraph();
+
   return (
     <div className="mt-5 max-h-screen">
-      <div className="w-full h-fit grid grid-cols-3 max-md:grid-cols-2 grid-rows-3 gap-2">
+      <div className="w-full h-fit grid grid-cols-3 max-md:grid-cols-2 grid-rows-3 gap-2 relative">
+        <div
+          className={`w-full h-screen fixed flex gap-2 top-0 left-0 items-center justify-center pointer-events-none ${isLoading | isRefetching ? "" : "hidden"}`}
+        >
+          <Loader2 className="animate-spin" />
+          <p className="text-sm">Loading data...</p>
+        </div>
         {paragraphList &&
           paragraphList.map((item) => (
             <QuestionCard

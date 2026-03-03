@@ -1,4 +1,5 @@
 import EditQuestions from "./components/edit-question/edit-questions";
+import FilterMenu from "./components/filter-menu";
 import HomePageHeader from "./components/header";
 import QuestionSection from "./components/questions-section";
 
@@ -9,7 +10,7 @@ const HomePageAdmin = () => {
         <HomePageHeader />
         <QuestionSection />
       </div>
-
+      <FilterMenu />
       {/* This is the edit question section */}
       <EditQuestions />
     </div>

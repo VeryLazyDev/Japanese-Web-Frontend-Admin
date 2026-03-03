@@ -19,31 +19,34 @@ const EditQuestionCard = ({ question }) => {
       <div className="space-y-2">
         <p className="text-sm">Answer Options</p>
         <div className="space-y-2">
-          {Array.from({ length: 4 }).map((index) => (
-            <div
-              key={index}
-              className="flex justify-between items-center gap-3"
-            >
-              <input
-                type="text"
-                // value={
-                //   localQuestionEdits[activeQuestionNo]?.options[
-                //     index
-                //   ] || ""
-                // }
-                // placeholder={`Option ${answer}`}
-                className="bg-light-bg flex-1 h-10 p-3 rounded-md text-xs border border-neutral-500"
-              />
-              <label className="flex justify-center items-center gap-1 text-xs cursor-pointer">
+          {question.answerList &&
+            question.answerList.map((item) => (
+              <div
+                key={item.id}
+                className="flex justify-between items-center gap-3"
+              >
                 <input
-                  type="radio"
-                  // name={`correct-${activeQuestionNo}`}
-                  checked={false}
-                />{" "}
-                Correct
-              </label>
-            </div>
-          ))}
+                  type="text"
+                  defaultValue={item.answer}
+                  // value={
+                  //   localQuestionEdits[activeQuestionNo]?.options[
+                  //     index
+                  //   ] || ""
+                  // }
+                  // placeholder={`Option ${answer}`}
+                  className="bg-light-bg flex-1 h-10 p-3 rounded-md text-xs border border-neutral-500"
+                />
+                <label className="flex justify-center items-center gap-1 text-xs cursor-pointer">
+                  <input
+                    type="radio"
+                    // name={`correct-${activeQuestionNo}`}
+                    checked={item.correct_answer}
+                    onChange={() => {}}
+                  />
+                  Correct
+                </label>
+              </div>
+            ))}
         </div>
       </div>
     </div>

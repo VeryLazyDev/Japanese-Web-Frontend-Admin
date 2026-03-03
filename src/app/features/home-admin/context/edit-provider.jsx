@@ -1,10 +1,22 @@
 import { createContext } from "react";
 import useParagraph from "../hooks/useParagraph";
 import { useState } from "react";
+import useDialogs from "@/hooks/useDialogs";
 
-const EditQuestionContext = createContext({});
+const EditQuestionContext = createContext({
+  openEdit: () => {},
+  closeEdit: () => {},
+  editQuestionSidebar: () => {},
+  selectedParagraph: () => {},
+  handleDeleteQuestion: () => {},
+  previewMode: () => {},
+  setPreviewMode: () => {},
+  activeQuestionNo: () => {},
+  setActiveQuestionNo: () => {},
+});
 const EditQuestionProvider = ({ children }) => {
-  const { paragraphList } = useParagraph();
+  const { paragraphList, deleteParagraph } = useParagraph();
+  const { PushDialog } = useDialogs();
   const [editQuestionSidebar, setEditQuestionSidebar] = useState(false);
   const [selectedParagraph, setSelectedParagraph] = useState(null);
   const [previewMode, setPreviewMode] = useState("code");
@@ -20,9 +32,24 @@ const EditQuestionProvider = ({ children }) => {
   };
   const closeEdit = () => {
     setEditQuestionSidebar(false);
-    setSelectedParagraph(null);
+    const interval = setInterval(() => {
+      setSelectedParagraph(null);
+      clearInterval(interval);
+    }, 300);
   };
-  const handleDeleteQuestion = (questionId) => {};
+  const handleDeleteQuestion = () => {
+    if (!selectedParagraph) return;
+    PushDialog({
+      id: "delete-paragraph-confirm",
+      type: "confirm",
+      title: "Delete Paragraph",
+      message: "Are you sure you want to delete this paragraph?",
+      onConfirm: () => {
+        deleteParagraph(selectedParagraph.id);
+        closeEdit();
+      },
+    });
+  };
 
   return (
     <EditQuestionContext.Provider
