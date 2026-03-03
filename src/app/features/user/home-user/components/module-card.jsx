@@ -1,6 +1,6 @@
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import useAnimation from "../../../../hooks/useAnimation";
+import useAnimation from "@/hooks/useAnimation";
 import { useTranslation } from "react-i18next";
 
 const ModuleCard = ({

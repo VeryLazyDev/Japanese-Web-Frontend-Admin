@@ -2,7 +2,7 @@ import useQuestionState from "../hooks/userQuestionState";
 import Dropdown from "./dropdown";
 import { paragraphLevel, paragraphType } from "@/constant/paragraph-data";
 
-import FuriganaRenderer from "./furiganated-renderer";
+import FuriganaRenderer from "../../../../../components/furiganated-renderer";
 import PreviewModeSwitch from "./preview-mode-switch";
 import useFurigana from "../hooks/useFurigana";
 import CodeViewRenderer from "./codeview-renderer";

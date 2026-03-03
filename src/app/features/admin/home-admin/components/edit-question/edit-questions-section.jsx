@@ -1,5 +1,4 @@
 import { useEditQuestion } from "../../hooks/useEditQuestions";
-import FuriganaRenderer from "../../../new-excercise/components/furiganated-renderer";
 import EditQuestionBottomSection from "./edit-questions-bottom";
 import EditQuestionHeader from "./edit-question-header";
 import EditParagraphSection from "./edit-paragraph-section";
