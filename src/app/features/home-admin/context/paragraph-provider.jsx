@@ -27,7 +27,7 @@ const ParagraphContext = createContext({
 const FetchAllParagraph = async (filter) => {
   var query = `?page=${filter.page}&size=${filter.size}&level=${filter.level}&paragraphType=${filter.paragraphType}`;
   const { data } = await axios.get(
-    "https://api-muda-zero.nyinyimyintmyat.com/japanese-app/api/v1/paragraph/all" +
+    "https://proxy.phyoheinko.com?https://api-muda-zero.nyinyimyintmyat.com/japanese-app/api/v1/paragraph/all" +
       query,
   );
   return data;
