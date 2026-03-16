@@ -1,6 +1,3 @@
-
-
-
 export const ReadingLevels = [
     {
         id: 1,
@@ -10,7 +7,7 @@ export const ReadingLevels = [
         kanji: "~ 100 kanji",
         bg: "bg-cyan-bg",
         color: "text-cyan-500",
-        nextPath: "/reading-modules"
+        nextPath: "/reading/modules",
     },
     {
         id: 2,
@@ -19,7 +16,8 @@ export const ReadingLevels = [
         desc: "Basic conversations",
         kanji: "~ 200 kanji",
         bg: "bg-amber-bg",
-        color: "text-amber-500"
+        color: "text-amber-500",
+        nextPath: "/reading/modules",
     },
     {
         id: 3,
@@ -28,7 +26,8 @@ export const ReadingLevels = [
         kanji: "~ 600 kanji",
         desc: "More complex topics",
         bg: "bg-pink-bg",
-        color: "text-pink-500"
+        color: "text-pink-500",
+        nextPath: "/reading/modules",
     },
 ];
 
@@ -40,7 +39,7 @@ export const KanjiLevels = [
         desc: "~ 100 kanji",
         bg: "bg-cyan-bg",
         color: "text-cyan-500",
-        nextPath: "/kanji-modules"
+        nextPath: "/kanji/modules",
     },
     {
         id: 2,
@@ -48,7 +47,8 @@ export const KanjiLevels = [
         title: "Elementary",
         desc: "~ 200 kanji",
         bg: "bg-amber-bg",
-        color: "text-amber-500"
+        color: "text-amber-500",
+        nextPath: "/kanji/modules",
     },
     {
         id: 3,
@@ -56,6 +56,7 @@ export const KanjiLevels = [
         title: "Intermediate",
         desc: "~ 600 kanji",
         bg: "bg-pink-bg",
-        color: "text-pink-500"
+        color: "text-pink-500",
+        nextPath: "/kanji/modules",
     },
 ];

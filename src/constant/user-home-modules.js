@@ -2,12 +2,12 @@ import { Book, CircleQuestionMark } from "lucide-react";
 import { TbCardsFilled } from "react-icons/tb";
 import { MdBolt } from "react-icons/md";
 import startSfx from "../assets/sfx/startSfx.mp3";
-import logo from "../assets/icons/logo.png"
-import logoText from "../assets/icons/logo-text.png"
+import logo from "../assets/icons/logo.png";
+import logoText from "../assets/icons/logo-text.png";
 
 export const soundEffects = { startSfx };
 
-export const logos ={ logo, logoText}
+export const logos = { logo, logoText };
 
 export const readingModules = [
     {
@@ -16,6 +16,7 @@ export const readingModules = [
         icon: Book,
         desc: "Strategically selected exercises to equip you with essential skills for the tests.",
         style: "white text-3xl",
+        nextPath: "/reading/list",
     },
     {
         id: 2,
@@ -23,6 +24,7 @@ export const readingModules = [
         icon: MdBolt,
         desc: "Accelerate and sharpen your reading speed & accuracy by doing quick drills.",
         style: "text-amber-400 text-3xl",
+        nextPath: "/reading/speedrun",
     },
 ];
 
@@ -41,7 +43,7 @@ export const KanjiModules = [
         desc: "Test your kanji knowledge with multiple choice questions",
         style: "text-amber-400 text-3xl",
     },
-]
+];
 
 export const modules = [
     {
@@ -52,7 +54,7 @@ export const modules = [
         kanji: "読",
         bgColor: "bg-cyan-200",
         kanjiColor: "text-cyan-700",
-        path: "/reading-levels",
+        path: "/reading/levels",
     },
     {
         id: 2,
@@ -62,7 +64,7 @@ export const modules = [
         kanji: "字",
         bgColor: "bg-fuchsia-200",
         kanjiColor: "text-fuchsia-700",
-        path: "/kanji-levels"
+        path: "/kanji/levels",
     },
     {
         id: 3,

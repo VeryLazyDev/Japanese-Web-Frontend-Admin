@@ -1,17 +1,17 @@
 import { createContext, useState } from "react";
 
-
-const LevelContext = createContext();
-const LevelProvider = ({children}) => {
-
-    const [currentLevel, setCurrentLevel] = useState("")
+const LevelContext = createContext({
+    currentLevel: "",
+    setCurrentLevel: () => {},
+});
+const LevelProvider = ({ children }) => {
+    const [currentLevel, setCurrentLevel] = useState("");
 
     return (
         <LevelContext.Provider value={{ currentLevel, setCurrentLevel }}>
-          {children}
+            {children}
         </LevelContext.Provider>
-      );
-    
-}
+    );
+};
 
-export {LevelContext, LevelProvider}
+export { LevelContext, LevelProvider };

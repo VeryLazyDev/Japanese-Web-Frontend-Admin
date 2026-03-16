@@ -1,7 +1,7 @@
 import { AdminLayout, UserLayout } from "@/constant/lazyload";
 import { createBrowserRouter } from "react-router-dom";
-import AdminRoutes from "./admin-routes";
-import UserRoutes from "./user-routes";
+import AdminRoutes from "./admin-main-routes";
+import UserRoutes from "./user-main-routes";
 // import LoginAdminWrapper from "../features/admin/login-admin/wrapper";
 
 const router = createBrowserRouter([

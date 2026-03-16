@@ -25,7 +25,7 @@ const HomePageUser = () => {
                     </p>
                 </div>
 
-                <ModuleList></ModuleList>
+                <ModuleList />
             </div>
         </>
     );

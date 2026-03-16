@@ -20,7 +20,7 @@ const Navbar = () => {
     return (
         <>
             <div className="fixed w-full p-1.5 flex justify-center h-14  bg-neutral-900 select-none z-100 ">
-                <nav className="flex justify-between items-center w-90 sm:w-150 lg:w-250 py-2 px-4">
+                <nav className="flex justify-between items-center w-full sm:w-150 lg:w-250 py-2 px-4">
                     {/* logo */}
                     <img
                         onClick={() => navigate("/")}
