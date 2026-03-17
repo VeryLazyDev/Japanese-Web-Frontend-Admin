@@ -1,0 +1,14 @@
+{
+    "user": {
+        "header-desc": "Choose your JLPT Level to start learning",
+        "Starter": "Starter",
+        "Beginner": "Beginner",
+        "Intermediate": "Intermediate",
+        "Advanced": "Advanced",
+        "Expert": "Expert",
+        "Foundations": "Foundations",
+        "Basic conversations": "Basic conversations",
+        "More complex topics": "More complex topics"
+    },
+    "admin": {}
+}

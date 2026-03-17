@@ -1,0 +1,14 @@
+{
+    "user": {
+        "header-desc": "သင်ခန်းစာများ စတင်လေ့လာရန် သင်၏ JLPT Level ကို ရွေးချယ်ပေးပါ",
+        "Starter": "အစပြုသူ",
+        "Beginner": "အခြေခံအဆင့်",
+        "Intermediate": "အလယ်အလတ်အဆင့်",
+        "Advanced": "အဆင့်မြင့်",
+        "Expert": "ကျွမ်းကျင်သူအဆင့်",
+        "Foundation": "Foundation",
+        "Basic conversations": "အခြေခံ စကားပြော",
+        "More complex topics": "ပိုမိုနက်နဲသော အကြောင်းအရာများ"
+    },
+    "admin": {}
+}

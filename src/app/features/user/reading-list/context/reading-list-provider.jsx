@@ -11,6 +11,21 @@ const ReadingListContext = createContext({
     readingsData: [],
     changePage: () => {},
     refetch: () => {},
+    filter: {
+        paraType: "Short",
+        level: "N5",
+        size: 10,
+        page: 0,
+    },
+    readingsDataMeta: {
+        pagination: {
+            pageNumber: 0,
+            size: 0,
+            totalElement: 0,
+            totalPages: 1,
+            isLast: false,
+        },
+    },
 });
 const ReadingListProvider = ({ children }) => {
     const [params] = useSearchParams();
@@ -41,6 +56,8 @@ const ReadingListProvider = ({ children }) => {
                 readingsData: readingsData?.content || [],
                 refetch,
                 changePage,
+                filter,
+                readingsDataMeta: readingsData?.metadata || {},
             }}
         >
             {children}

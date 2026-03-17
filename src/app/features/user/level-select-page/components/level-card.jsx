@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import useAnimation from "@/hooks/useAnimation";
 import { useNavigate } from "react-router-dom";
 import useLevel from "@/hooks/useLevel";
+import { useTranslation } from "react-i18next";
 
 const LevelCard = ({ level, title, desc, bg, color, nextPath }) => {
     const navigate = useNavigate();
@@ -10,6 +11,7 @@ const LevelCard = ({ level, title, desc, bg, color, nextPath }) => {
         hoverModuleCardAnimation: { onMouseEnter, onMouseLeave },
     } = useAnimation();
 
+    const { t } = useTranslation("level", { keyPrefix: "user" });
     return (
         <>
             <div
@@ -29,9 +31,11 @@ const LevelCard = ({ level, title, desc, bg, color, nextPath }) => {
                 </div>
 
                 <div className="">
-                    <span className="text-base font-medium block">{title}</span>
+                    <span className="text-base font-medium block">
+                        {t(title)}
+                    </span>
                     <span className="text-sm text-muted-font mt-1 block">
-                        {desc}
+                        {t(desc)}
                     </span>
                 </div>
 

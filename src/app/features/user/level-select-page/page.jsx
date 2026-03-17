@@ -1,9 +1,11 @@
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import LevelCard from "./components/level-card";
+import { useTranslation } from "react-i18next";
 
 const LevelSelectPage = ({ title, levels }) => {
     const navigate = useNavigate();
+    const { t } = useTranslation("level", { keyPrefix: "user" });
     return (
         <>
             <header className="bg-transparent w-full h-auto mt-8 space-y-5">
@@ -23,7 +25,7 @@ const LevelSelectPage = ({ title, levels }) => {
                 <div className="space-y-2">
                     <h1 className="text-2xl font-semibold">{title}</h1>
                     <p className="text-base leading-relaxed text-muted-font">
-                        Choose your JLPT Level to start learning
+                        {t("header-desc")}
                     </p>
                 </div>
             </header>

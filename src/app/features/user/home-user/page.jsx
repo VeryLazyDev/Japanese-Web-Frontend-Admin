@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import LevelFilter from "./components/level-filter";
 import ModuleList from "./components/module-list";
 import { logos } from "@/constant/user-home-modules";
 const HomePageUser = () => {

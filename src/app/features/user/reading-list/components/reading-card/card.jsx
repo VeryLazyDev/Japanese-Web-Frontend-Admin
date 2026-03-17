@@ -16,7 +16,7 @@ const ReadingCard = ({ id, paragraph }) => {
                 <h4 className="font-semibold text-md max-sm:text-sm">
                     問題 {id}
                 </h4>
-                <ReadingStatusBadge status={"Completed"} />
+                <ReadingStatusBadge status={"New"} />
             </div>
             <p className="line-clamp-2 text-sm max-sm:text-xs">{paragraph}</p>
         </div>

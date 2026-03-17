@@ -4,11 +4,13 @@ import { readingModules } from "@/constant/user-home-modules";
 import { useState } from "react";
 import SpeedrunPopup from "./components/speedrun-popup";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ReadingModulePage = () => {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
     const [param] = useSearchParams();
+    const { t } = useTranslation("reading-module", { keyPrefix: "user" });
     return (
         <>
             {isOpen && (
@@ -23,7 +25,7 @@ const ReadingModulePage = () => {
                     <Card
                         title={readingModules[0].title}
                         Icon={readingModules[0].icon}
-                        desc={readingModules[0].desc}
+                        desc={t(readingModules[0].desc)}
                         onClick={() =>
                             navigate(
                                 readingModules[0].nextPath +
@@ -38,7 +40,7 @@ const ReadingModulePage = () => {
                         onClick={() => setIsOpen(true)}
                         title={readingModules[1].title}
                         Icon={readingModules[1].icon}
-                        desc={readingModules[1].desc}
+                        desc={t(readingModules[1].desc)}
                         style={readingModules[1].style}
                     ></Card>
                 </div>

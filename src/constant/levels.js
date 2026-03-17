@@ -2,7 +2,7 @@ export const ReadingLevels = [
     {
         id: 1,
         level: "N5",
-        title: "Beginner",
+        title: "Starter",
         desc: "Foundations",
         kanji: "~ 100 kanji",
         bg: "bg-cyan-bg",
@@ -12,7 +12,7 @@ export const ReadingLevels = [
     {
         id: 2,
         level: "N4",
-        title: "Elementary",
+        title: "Beginner",
         desc: "Basic conversations",
         kanji: "~ 200 kanji",
         bg: "bg-amber-bg",
@@ -35,7 +35,7 @@ export const KanjiLevels = [
     {
         id: 1,
         level: "N5",
-        title: "Beginner",
+        title: "Starter",
         desc: "~ 100 kanji",
         bg: "bg-cyan-bg",
         color: "text-cyan-500",
@@ -44,7 +44,7 @@ export const KanjiLevels = [
     {
         id: 2,
         level: "N4",
-        title: "Elementary",
+        title: "Beginner",
         desc: "~ 200 kanji",
         bg: "bg-amber-bg",
         color: "text-amber-500",
